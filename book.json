@@ -1,0 +1,78 @@
+{
+	"root": "./docs",
+	"title": "优布克(your book)",
+	"language": "zh-hans",
+	"gitbook": "3.2.3",
+	"?plugins": "注释：常用的插件，网上可以找到下面各插件的用途",
+	"plugins": [
+		"favicon",
+		"insert-logo",
+		"code",
+		"-lunr",
+		"-search",
+		"search-pro",
+		"back-to-top-button",
+		"mathjax-pro",
+		"flexible-alerts",
+		"auto-scroll-table",
+		"lightbox",
+		"tbfed-pagefooter",
+		"accordion"
+	],
+	"pluginsConfig": {
+		"insert-logo": {
+			"url": "/ubuk/assets/ubuk.png",
+			"style": "background: none; max-height: 100px; min-height: 30px"
+		},
+		"favicon": {
+			"shortcut": "assets/ubuk.ico",
+			"bookmark": "assets/ubuk.ico",
+			"appleTouch": "assets/ubuk.png",
+			"appleTouchMore": {
+				"152x152": "assets/ubuk.png"
+			}
+		},
+		"tbfed-pagefooter": {
+			"copyright": "Copyright © all right reserved, powered by ... 2023",
+			"modify_label": "该文档修订时间：",
+			"modify_format": "YYYY-MM-DD HH:mm:ss"
+		},
+		"lightbox": {
+			"options": {
+				"resizeDuration": 200,
+				"sameUuid": true,
+				"wrapAround": true
+			}
+		},
+		"flexible-alerts": {
+			"note": {
+				"label": "NOTE"
+			},
+			"tip": {
+				"label": "Tip"
+			},
+			"warning": {
+				"label": "Warning"
+			},
+			"danger": {
+				"label": "Danger"
+			}
+		},
+		"zymplayer": {
+			"element": "body",
+			"width": "200px",
+			"mode": "random",
+			"show": "all",
+			"list": {
+				"path": "/ubuk/assets/music/musicList.json",
+				"height": 180,
+				"expand": false
+			},
+			"position": {
+				"pos": "fixed",
+				"right": "0px",
+				"bottom": "0px"
+			}
+		}
+	}
+}

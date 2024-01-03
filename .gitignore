@@ -1,0 +1,45 @@
+# Ignore the file
+*.csv
+*.xlsx
+*.db
+*.zip
+*.txt
+*.ipynb
+*.mp3
+
+
+package-lock.json
+暂存.txt
+_book/about_History/世界战争简记.html
+_book/about_History/世界战争简记.md
+_book/about_History/中东.html
+_book/about_History/中东.md
+_book/about_History/中国近代史.html
+_book/about_History/中国近代史.md
+_book/about_History/会议概念理清.html
+_book/about_History/会议概念理清.md
+_book/about_History/部分详细内容.html
+_book/about_History/部分详细内容.md
+_book/about_Other/左右问题.html
+_book/about_Other/左右问题.md
+_book/about_Other/关于FGO中的角色.html
+_book/about_Other/关于FGO中的角色.md
+_book/about_Other/百问百答.md
+_book/about_Python/Django框架.md
+插件备份/
+
+##########################################
+
+# Ignore everything in the directory
+docs/about_Python/DataScienceclasses/
+docs/about_Python/kaggle/
+docs/about_Python/ML_Notes-master/
+docs/about_Python/pandas100/
+docs/about_Python/datascience_manual/    
+docs/about_Python/datastructure/
+node_modules/
+docs/about_Python/black_horse/course2/day*
+
+# gitbook build 的时候需要注释
+# 但是提交到 gitee 的时候取消注释
+docs/

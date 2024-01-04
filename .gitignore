@@ -10,22 +10,22 @@
 
 package-lock.json
 暂存.txt
-_book/about_History/世界战争简记.html
-_book/about_History/世界战争简记.md
-_book/about_History/中东.html
-_book/about_History/中东.md
-_book/about_History/中国近代史.html
-_book/about_History/中国近代史.md
-_book/about_History/会议概念理清.html
-_book/about_History/会议概念理清.md
-_book/about_History/部分详细内容.html
-_book/about_History/部分详细内容.md
-_book/about_Other/左右问题.html
-_book/about_Other/左右问题.md
-_book/about_Other/关于FGO中的角色.html
-_book/about_Other/关于FGO中的角色.md
-_book/about_Other/百问百答.md
-_book/about_Python/Django框架.md
+# _book/about_History/世界战争简记.html
+# _book/about_History/世界战争简记.md
+# _book/about_History/中东.html
+# _book/about_History/中东.md
+# _book/about_History/中国近代史.html
+# _book/about_History/中国近代史.md
+# _book/about_History/会议概念理清.html
+# _book/about_History/会议概念理清.md
+# _book/about_History/部分详细内容.html
+# _book/about_History/部分详细内容.md
+# _book/about_Other/左右问题.html
+# _book/about_Other/左右问题.md
+# _book/about_Other/关于FGO中的角色.html
+# _book/about_Other/关于FGO中的角色.md
+# _book/about_Other/百问百答.md
+# _book/about_Python/Django框架.md
 插件备份/
 
 ##########################################
@@ -40,6 +40,6 @@ docs/about_Python/datastructure/
 node_modules/
 docs/about_Python/black_horse/course2/day*
 
-# gitbook build 的时候需要注释
-# 但是提交到 gitee 的时候取消注释
+# gitbook build 的时候需要注释，构建的时候不能忽略
+# 但是提交到 gitee 的时候取消注释，提交的时候需要忽略
 docs/

@@ -21,7 +21,7 @@
 	],
 	"pluginsConfig": {
 		"insert-logo": {
-			"url": "assets/ubuk.png",
+			"url": "/assets/ubuk.png",
 			"style": "background: none; max-height: 100px; min-height: 30px"
 		},
 		"favicon": {

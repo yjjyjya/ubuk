@@ -735,6 +735,21 @@ print(result)
 print(list(result))
 ```
 
+函数名是一个特殊的变量，保存了函数的地址
+
+``` python
+def test():
+    print("哈哈，我是一个寂寞的test！")
+
+
+test()
+ret = test    #定义变量 ret 获取函数 test 的地址
+print(ret)
+
+# 可以通过 ret 调用函数
+ret()
+```
+
 
 # 文件操作
 
@@ -1056,7 +1071,7 @@ wangcai.info_print()    # 静态方法能够通过实例对象访问
 ```
 
 
-# 抛出异常
+# 异常处理
 
 ``` python
 异常传递
@@ -1071,6 +1086,7 @@ try:
 except:
     。。。
 ```
+使用 `raise` 关键字可以显式地抛出异常，提供更多的异常信息和上下文，帮助调试和定位问题，而不使用 `raise` 则会隐式地抛出异常  
 
 自定义异常：
 

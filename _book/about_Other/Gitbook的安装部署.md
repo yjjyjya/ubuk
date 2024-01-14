@@ -5,6 +5,7 @@
 关于插件：https://blog.csdn.net/qq_43514847/article/details/86598399  
 关于公式：https://blog.csdn.net/qq_42898299/article/details/106779945  
 http://www.zhaowenyu.com/gitbook-doc/default-files/book-json.html  
+部署：https://dvel.me/posts/deploy-blog-in-cloudflare-pages/  
 
 # 安装 nodejs
 
@@ -58,6 +59,8 @@ https://blog.csdn.net/qq_30033537/article/details/113738575
 1、Gitee pages  
 2、glitch.me  
 3、GitHub pages  
+4、cloudflare：https://dash.cloudflare.com/2e55d48f8306baee004a3e7e40f5a8e9/pages/new/provider/github  
+&emsp;&emsp;mymail_yjj@qq.com 12345678@
 
 先切换路径到：D:\mybook_ubuk 执行：  
 `gitbook init`        //初始化，时间可能比较久  

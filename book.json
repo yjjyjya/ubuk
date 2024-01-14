@@ -11,6 +11,8 @@
 		"-lunr",
 		"-search",
 		"search-pro",
+		"-highlight",
+		"prism",
 		"back-to-top-button",
 		"mathjax-pro",
 		"flexible-alerts",
@@ -31,6 +33,11 @@
 			"appleTouchMore": {
 				"152x152": "assets/ubuk.png"
 			}
+		},
+		"prism": {
+			"css": [
+				"prismjs/themes/prism-solarizedlight.css"
+			]
 		},
 		"tbfed-pagefooter": {
 			"copyright": "Copyright © all right reserved, powered by ... 2023",

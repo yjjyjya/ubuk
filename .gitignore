@@ -6,6 +6,7 @@
 *.txt
 *.ipynb
 *.mp3
+.vscode
 
 
 package-lock.json

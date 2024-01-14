@@ -1,14 +1,31 @@
 # 休闲一下
 
-[浪漫，讽刺，数学和语言的网络漫画 - 作者：兰德尔·门罗](https://xkcd.com/archive/)
+- [浪漫，讽刺，数学和语言的网络漫画 - 作者：兰德尔·门罗](https://xkcd.com/archive/)
 
-[SpaceShip - OpenGameArt.org](https://opengameart.org/content/)
+- [SpaceShip - OpenGameArt.org](https://opengameart.org/content/)
 
-[刷剧 - 夜雨聆风](https://vip.yeyulingfeng.com/)
+- [刷剧 - 夜雨聆风](https://vip.yeyulingfeng.com/)
 
-[别人整理的笔记 - huaxiaozhuan](https://www.bookstack.cn/read/huaxiaozhuan-ai/README.md)
+- [别人整理的笔记 - huaxiaozhuan](https://www.bookstack.cn/read/huaxiaozhuan-ai/README.md)
 
-[漫画图解知识 - 混知](https://www.zhihu.com/org/hun-zhi-yuan-hun-zi-yue-/posts)
+- [漫画图解知识 - 混知](https://www.zhihu.com/org/hun-zhi-yuan-hun-zi-yue-/posts)
+
+- 小念头  
+    - 第一节  
+        握拳屈膝，开好马步（二指钳羊马），重心下沉  
+        双手张开，双耕手，双摊手，收拳  
+        左手日字冲拳，摊平，圈手，收拳；右手类似  
+        摊手，（圈手变护手再慢慢收回，伏手再慢慢往前）3次，圈手变护手再慢慢收回，放松拍手，撑掌，摊平，圈手，收拳；右手类似  
+    - 第二节  
+        左手按掌，右手按掌，双手后按掌，双手前按掌  
+        双手端平，左手在上右手在下，拂手变栏手  
+        枕手，前标，窒手，标手  
+        压臂呼气，提臂呼气，圈手，收拳  
+    - 第三节  
+        左手推拍，横掌，圈手，收拳；右手类似  
+        左手标摊，耕手，标摊，圈手，底掌，标摊，圈手，收拳；右手类似  
+        左手绑手，鞭摊，托手，圈手，收拳；右手类似  
+        左手伸出，手腕对中，右手置于左手肘关节，甩手，左右手交替做3次，日字冲拳3次，圈手，收拳  
 
 
 

@@ -24,7 +24,7 @@
 
 - 传递参数  
     参数下标从 1 开始，通过百分号加数字表示  
-    ``` bat
+    ``` batch
     call test2.bat "hello" "haha"
     
     在 test2.bat 文件里写:
@@ -121,7 +121,7 @@ label 标签的名字最好是有意义的，字母前必须加个 **冒号** `:
 若错误码 errorlevel（或称返回码）等于指定的数字，则条件成立，运行指定命令，否则跳过，运行下一句  
 返回值必须按照 **从大到小** 的顺序排列  
 
-``` bat
+``` batch
 if 条件1 (条件1成立时执行的命令)
 ^ else if 条件2 (条件2成立时执行的命令)
 ^ else (都不成立时执行的命令)`
@@ -142,7 +142,7 @@ GEQ - 大于或等于
 然后配合 `if errorlevel` 选择运行不同的命令  
 
 例如：
-``` bat
+``` batch
 choice /c abc /n
 ::应先判断数值最高的错误码
 if errorlevel 3 goto defrag
@@ -183,7 +183,7 @@ if errorlevel 1 goto end
         `for /f "delims=" %%a in (zhidian.txt) do (echo %%a)`  
 
     - 把记事本中的内容每一行前面去掉 8 个字符  
-        ``` bat
+        ``` batch
         setlocal enabledelayedexpansion
         for /f %%i in (zhidian.txt) do (
         set atmp=%%i
@@ -195,7 +195,7 @@ if errorlevel 1 goto end
 ## continue、break 命令
 
 例子  
-``` bat
+``` batch
 for /F ["options"] %variable IN (command) DO (
 这里是一些命令
 if ... goto continue
@@ -210,7 +210,7 @@ if ... goto break
 ## 字符串处理
 
 - 分割字符串  
-    ``` bat
+    ``` batch
     "%time%" 显示如："11:04:23.03" (完整的时间"hh:mm:ss.tt")
     :: 注意索引从 1 开始
     "%time:~0,5%" 显示"hh:mm"(即"11:04")
@@ -221,7 +221,7 @@ if ... goto break
     ```
 
 - 替换字符串  
-    ``` bat
+    ``` batch
     set a="abcd1234"
     echo %a%    ::显示："abcd1234"
     set a=%a:1=kk%    ::替换“1”为“kk”
@@ -230,7 +230,7 @@ if ... goto break
 
 - 计算字符串长度  
     写一个 for 循环来计算  
-    ``` bat
+    ``` batch
     set testStr=This is a test string
     :: 将 testStr 复制到str，str 是个临时字符串
     set str=%testStr%
@@ -256,7 +256,7 @@ if ... goto break
 
 
 - 截取字符串时，需要传递参数  
-    ``` bat
+    ``` batch
     setlocal enabledelayedexpansion
     echo !args:~%num%,-5!    ::截取出从第num+1开始到倒数第5个结束的字符串
     ```

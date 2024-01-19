@@ -35,6 +35,8 @@ https://blog.csdn.net/qq_43514847/article/details/86598399
 "search-pro",  
 "page-treeview",  
 "zymplayer"  
+"-highlight",
+"prism",
 
 
 

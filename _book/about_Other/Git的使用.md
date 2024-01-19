@@ -389,18 +389,33 @@ git config color.ui true
 
 # *可能遇到的问题*
 
-1、[若想要 Git 忽略掉对某个文件的管理](https://cloud.tencent.com/developer/article/1124235#)  
-先删除已经托管的文件 `git rm -cached 某文件`  
-将该文件写入 .gitignore 文件中  
-然后 add 再 commit 再 push 到远程仓库即可  
+- 1、[若想要 Git 忽略掉对某个文件的管理](https://cloud.tencent.com/developer/article/1124235#)  
+    先删除已经托管的文件 `git rm -cached 某文件`  
+    将该文件写入 .gitignore 文件中  
+    然后 add 再 commit 再 push 到远程仓库即可  
 
-2、`git push` 发生错误  
-可能本地仓库和远程仓库的 **文件有冲突**，要先 `pull` 远端的版本，解决了冲突才能 `push`  
-`git pull origin main / git pull origin main --allow-unrelated-histories` 先拉取合并到本地仓库  
-`git push -u origin main` 再推送上去  
+- 2、`git push` 发生错误  
+    可能本地仓库和远程仓库的 **文件有冲突**，要先 `pull` 远端的版本，解决了冲突才能 `push`  
+    `git pull origin main / git pull origin main --allow-unrelated-histories` 先拉取合并到本地仓库  
+    `git push -u origin main` 再推送上去  
 
-> [!NOTE]
-> 建议在新建仓库的时候，**不要勾选** README 和 .gitignore 选项，统一由本地生成，这样在建立关联关系的时候就不会有冲突了  
+    > [!NOTE]
+    > 建议在新建仓库的时候，**不要勾选** README 和 .gitignore 选项，统一由本地生成，这样在建立关联关系的时候就不会有冲突了  
+
+- 3、 .gitignore 文件的书写  
+    .gitignore 文件一般放在代码库的根目录下，但是也可以在其他目录下，支持多个 .gitignore 文件  
+    `#` 为注释  
+    `\` 为转义字符，可以转义空格  
+    `!` 使得文件重新添加进来，不 ignore  
+    `/doc/frotz/` 只会匹配 `doc/frotz` 目录，而不会匹配 `a/doc/frotz` 目录  
+    但是 `frotz/` 匹配 `frotz` 目录以及 `a/frotz` 目录，等价于 `**/frotz`
+    所有路径都是相对 .gitignore 文件所在的路径  
+
+    `*` 只能匹配文件和当前目录下的一级目录  
+    `foo/*` 能匹配到 `foo/test.json`，`foo/bar`，但不能匹配到 `foo/bar/hello.c`，因为 `*` 匹配不到含有 `/` 的部分  
+
+    `abc/**` 匹配目录 `abc` (相对于 .gitignore 的路径)下的所有文件  
+    `a/**/b` 可以匹配 `a/b`、`a/x/b`、`a/x/y/b` 等等  
 
 
 # *有趣的 Git 闯关练习*

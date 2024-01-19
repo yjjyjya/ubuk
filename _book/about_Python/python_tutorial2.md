@@ -306,7 +306,7 @@ HTTP/1.1 404 Not Found\r\n
 3、定义接收信息的函数  
 
 重要的是学习黑马教程是如何将上述问题解耦，以及模块调用的  
-感觉写的很棒，而且耐心  
+感觉写的很棒，而且有耐心  
 
 ## 使用命令行启动
 
@@ -975,7 +975,10 @@ result = cur.execute(sql, [input_name, ])
 
 # 闭包
 
-函数嵌套
+结构：  
+1、存在函数的嵌套关系  
+2、内存可以使用外层的变量  
+3、外层返回内层的引用  
 
 ## 简单闭包
 
@@ -1003,15 +1006,166 @@ ret(200)
 而此时若又在内层对该同名变量定义为 nonlocal，这意味着该变量使用的是外层函数的，这样会导致错误  
 要小心避免  
 
+## 装饰器
+
+假设现在有一个 `login` 函数  
+``` python
+def login(username, uuuid):
+    print(f'{username} 开始登录')
+    return f'uuuid 为 {uuuid}'
+```
+请问如何在不修改源代码的情况下，为其增加登录前的验证功能？  
+答案是使用装饰器  
+``` python
+def function_out(func):
+    def function_in(username, uuuid='001'):
+        print("------开始验证-------, username =", username)
+        # 这里是验证操作...
+        return func(username, uuuid)
+
+    return function_in    #外部函数返回内部函数的函数名
+```
+方法一：
+``` python
+login2 = function_out(login)    #往外部函数中传入 login 函数
+res = login2(username='iron', uuuid='023')    #相当于调用内部函数
+print(res)
+```
+方法二：
+``` python
+# @function_out 装饰 login() 函数，将上述步骤简化
+@function_out
+def login(username, uuuid):
+    print(f'{username} 开始登录')
+    return f'uuuid 为 {uuuid}'
 
 
+# 通过闭包调用外层函数
+res = login(username='iron')
+print(res)
+```
+若 `login` 函数需要传入位置参数和关键字参数也是同理  
+
+那么，使用装饰器的时候如何传入参数呢？  
+这次我们不直接传入，而是在 `function_out` 外层再套一个函数，使用局部变量即可  
+``` python
+def myverify(step):
+    def function_out(func):
+        def function_in(username, uuuid='001'):
+            print("function_in step =", step)
+            print("------开始验证-------, username =", username)
+            # 这里是验证操作...
+            return func(username, uuuid)
+        return function_in    #外部函数返回内部函数的函数名
+
+    # 返回装饰器的引用
+    return function_out
 
 
+@myverify("register 注册步骤")
+def register(username, uuuid):
+    print(f'{username} 开始注册')
+    return f'uuuid 为 {uuuid}'
+
+@myverify("login 登录步骤")
+def login(username, uuuid):
+    print(f'{username} 开始登录')
+    return f'uuuid 为 {uuuid}'
+
+print(register(username='iron'))
+print(login(username='iron'))
+```
+`@myverify("register 注册步骤")` 分解为 2 步  
+1、执行 `myverify("register 注册步骤")`，传入了参数，并且返回 `function_out` 引用，得到 `@function_out`  
+2、之后就是同上，返回内部函数的引用 `function_in`  
+
+### 多重装饰器
+
+``` python
+# 定义一个让文字加粗的装饰器
+def makeBold(func):
+    def function_in():
+        return "<b>" + func() + "</b>"
+
+    return function_in
 
 
+# 定义一个让文字倾斜的装饰器
+def makeItalic(func):
+    def function_in():
+        return "<i>" + func() + "</i>"
+
+    return function_in
 
 
+@makeBold
+def test():
+    return "hello world-1"
 
+@makeItalic
+def test2():
+    return "hello world-2"
+
+@makeItalic
+@makeBold
+def test3():
+    return "hello world-3"
+
+
+print(test())  # <b>hello world-1</b>
+print(test2())  # <i>hello world-2</i>
+print(test3())  # <i><b>hello world-3</b></i>
+```
+
+### 装饰器类
+
+``` python
+class Test(object):
+
+    def __init__(self):
+        print("----初始化----")
+
+    def run(self):
+        print("---正在运行---")
+
+    def __call__(self, *args, **kwargs):
+        print("---call---")
+
+
+# 创建类对象
+test = Test()
+# 调用 run 方法
+test.run()
+
+test()
+```
+当使用 `对象名()` 此时会去调用类中的 `__call__()` 方法  
+若没有定义 `__call__()` 方法，则会报错  
+
+``` python
+# 装饰器类
+class Test(object):
+    def __init__(self, func):
+        self.func = func
+
+    def _verify(self, *args, **kwargs):
+        username = kwargs.get('username')
+        print("------开始验证-------, username =", username)
+
+    def __call__(self, *args, **kwargs):
+        # print(args, kwargs)
+        return self.func(*args, **kwargs)
+
+
+@Test
+def login(username, uuuid):
+    print(f'{username} 开始登录')
+    return f'uuuid 为 {uuuid}'
+
+login._verify(username='iron')
+res = login('iron', uuuid='023')
+print(res)
+```
 
 ---
 
@@ -1108,7 +1262,28 @@ del obj.goods
 
 ## 上下文管理器实现文件操作
 
+`with open('') as f:` 语句就是通过定义上下文方法来实现文件的操作，下面我们尝试实现 `MyFile()` 类  
+``` python
+class MyFile(object):
+    def __init__(self, file_name, file_model):
+        # 创建实例属性
+        self.file_name = file_name
+        self.file_model = file_model
 
+    # 上文方法（打开资源）
+    def __enter__(self):
+        # 打开文件，返回文件资源
+        self.file = open(self.file_name, self.file_model)
+        return self.file
+    
+    # 下文方法（关闭资源）
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # 关闭文件资源
+        self.file.close()
+    
 
-
+with Myfile('???.x=txt', 'r') as f:
+    data = f.read()
+    print(data)
+```
 

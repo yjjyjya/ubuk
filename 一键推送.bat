@@ -20,6 +20,7 @@ set now=%date% %time%
 set COMMIT_MESSAGE=update some files
 echo Time: %now%
 git commit -m "%COMMIT_MESSAGE%"
+@REM git commit -am "$(date "+%Y-%m-%d %H:%M:%S")"
 
 echo=
 echo 4. Push the changes to the remote git server

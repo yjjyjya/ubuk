@@ -1,6 +1,7 @@
 推荐先看[廖雪峰的教程](https://www.liaoxuefeng.com/wiki/896043488029600)，掌握基本的语句  
 之后有需要再看[完整的参考书](https://git-scm.com/book/zh/v2)  
 
+git加速：https://blog.csdn.net/B11050729/article/details/132131659
 
 # *什么是 Git*
 

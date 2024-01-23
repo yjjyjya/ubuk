@@ -1,16 +1,26 @@
-# 参考资料
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨参考资料</span> 
+    </div> 
+</div>
 
 黑马 Python 教程：https://github.com/cess-100/python-study
 
+---
 
-# hello world
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨基础知识</span> 
+    </div> 
+</div>
+
+### ⭕ hello world
 
 ``` python
 print("hello world")
 ```
 
-
-# 注释
+### ⭕ 注释
 
 ``` python
 # 单行注释
@@ -23,12 +33,11 @@ print("hello world")
 '''
 ```
 
-可以使用快捷键 `ctrl + /` 进行注释  
+选中代码后，可以使用快捷键 `ctrl + /` 进行注释  
 
+### ⭕ 数据类型
 
-# 数据类型
-
-常见数据类型：
+#### 🔘 常见数据类型
 
 ``` python
 # int 整型
@@ -71,7 +80,7 @@ j = {"name": "TOM", "age": 18}
 print(type(j))
 ```
 
-类型转换：
+#### 🔘 类型转换
 
 ``` python
 # 转换成浮点型
@@ -107,14 +116,13 @@ print(eval(str4))  # (1000, 2000, 3000)
 print(eval(str5))  # [1000, 2000, 3000]
 ```
 
-
-# 格式化输出
+### ⭕ 格式化输出
 
 。。。
 
 
 
-# 输入
+### ⭕ 输入
 
 `input` 会阻塞以等待用户输入，输入完成之后程序才继续向下执行  
 在 Python 中，`input` 会把接收到的任意用户输入的数据都当做 **字符串** 处理  
@@ -127,8 +135,7 @@ print(f'您输入的密码是{password}')
 print(type(password))    # str
 ```
 
-
-# 条件语句
+### ⭕ 条件语句
 
 练习示例：
 
@@ -155,7 +162,7 @@ else:
 # 此外，条件语句还可以嵌套
 ```
 
-# 三目运算符
+### ⭕ 三目运算符
 
 ``` python
 a = 1
@@ -173,8 +180,7 @@ print(result)
 # 并且字典、集合也可以类似地这样写
 ```
 
-
-# while 循环
+### ⭕ while 循环
 
 练习示例：
 
@@ -193,7 +199,7 @@ while i <= 9:
 # 以及 break 和 continue 的用法
 ```
 
-`while ... else ...` 用法：
+#### 🔘 `while ... else ...`
 
 ``` python
 while 条件:
@@ -205,8 +211,7 @@ else:
 > [!NOTE|style:flat]
 > 注意若 `while` 中存在 `break` 或者 `return` 就不会执行 `else` 中的内容（`for ... else ...` 也是同理）  
 
-
-# 字符串
+### ⭕ 字符串
 
 ``` python
 # 支持回车换行
@@ -221,7 +226,7 @@ print(type(f))
 print(f)
 ```
 
-## 字符串切片
+#### 🔘 字符串切片
 
 ``` python
 tmp = 'abcdefg'
@@ -235,7 +240,7 @@ print(tmp[-1:-4:-1])    # 'gfe'
 > 上述报错的代码中，下标 `-4` 到 `-1` 选取是从左到右，而步长取 `-1`，表示从右向左，所以选不出数据  
 > 选取方向与步长方向不一致就选不出来  
 
-## 字符串的一些操作
+#### 🔘 字符串的一些操作
 
 ``` python
 mystr = "hello world and cess and success and Python"
@@ -310,19 +315,18 @@ mylist = ['aa', 'bb', 'cc']
 new_str = '...'.join(mylist)
 ```
 
-常用的字符串判断
+- 常用的字符串判断  
 
-``` python
-.startwith()    #以什么开头
-.endwith()    #以什么结尾
-.isalpha()    #是否全为字母
-.isdigit()    #是否全为数字
-.isalnum()    #是否字母或数字
-.isspace()    #是否全为空格
-```
+    ``` python
+    .startwith()    #以什么开头
+    .endwith()    #以什么结尾
+    .isalpha()    #是否全为字母
+    .isdigit()    #是否全为数字
+    .isalnum()    #是否字母或数字
+    .isspace()    #是否全为空格
+    ```
 
-
-# 列表
+### ⭕ 列表
 
 列表是可变类型，可以修改其内部的元素
 
@@ -390,7 +394,8 @@ del namelist
 .sort(key= , reverse=)
 ```
 
-列表的深浅拷贝
+#### 🔘 列表的深浅拷贝
+
 ``` python
 。。。。。。。。。。。。。。。。。。
 ```
@@ -404,12 +409,12 @@ name_list = [['小明', '小红', '小绿'],
              ['Tom', 'Lily', 'Rose'],
              ['张三', '李李四', '王五']]
 
+
 print(name_list[0])  # ['小明', '小红', '小绿']
 print(name_list[1][1])  # Lily
 ```
 
-
-# 元组
+### ⭕ 元组
 
 元组是不可变类型
 
@@ -430,8 +435,7 @@ print(type(t3))  # <class 'int'>
 元组也有下标，也可以使用 index 和 count 方法  
 不能直接对元组的元素进行修改，但是若元组中存放了列表，则可以对列表的内部元素进行修改  
 
-
-# 字典
+### ⭕ 字典
 
 创建字典的方法：
 
@@ -474,8 +478,7 @@ for value in dict1.values():
 for k, v in dict1.items():
 ```
 
-
-# 集合
+### ⭕ 集合
 
 集合，没有顺序（意味着没有下标），自动去重
 
@@ -508,7 +511,7 @@ s1.discard(33)
 同样可以使用 `in` 或者 `not in` 判断数据是否在集合中  
 列表、元组、集合可以通过关键字相互转换 `list()` `tuple()` `set()`  
 
-enumerate 函数：
+#### 🔘 enumerate 函数
 
 ``` python
 list1 = ['a', 'b', 'c', 'd', 'e']
@@ -521,8 +524,7 @@ for index, value in enumerate(list1, start=1):
 > 也都支持乘号翻倍  
 > 字符串、列表、元组、集合、字典都支持通过 `len()` 求得长度  
 
-
-# 函数
+### ⭕ 函数
 
 函数是一个具有独立功能的代码块  
 可以在需要的位置进行调用  
@@ -547,7 +549,7 @@ help(myfunc)
 
 函数嵌套：一个函数里面调用了另外一个函数
 
-函数的返回值类型：
+#### 🔘 函数的返回值类型
 
 ``` python
 def return_num2():
@@ -558,7 +560,7 @@ result = return_num2()    #也可以进行解包
 print(result)
 ```
 
-函数的参数问题：
+#### 🔘 函数的参数问题
 
 ``` python
 def user_info(name, age, grade=1):
@@ -590,7 +592,7 @@ user_info('TOM', 18, id='001', grade=3)
 # {id:'001', grade:3}
 ```
 
-可变与不可变类型：
+#### 🔘 可变与不可变类型
 
 - 可变类型（记忆可变的即可）  
     列表
@@ -649,7 +651,9 @@ print(c, id(c))    #这里 c 的值发生了改变
 > [!NOTE|style:flat]
 > 在 python 中，值是靠 **引用** 来传递的  
 
-函数递归，注意设置递归终止条件：
+#### 🔘 函数递归
+
+注意设置递归终止条件
 
 ``` python
 # 计算 1 到 n 的数字累加和
@@ -664,7 +668,7 @@ sum = sum_numbers(10)
 print(sum)
 ```
 
-匿名函数：
+#### 🔘 匿名函数
 
 ``` python
 fn2 = lambda: 200
@@ -674,7 +678,9 @@ print(fn2())
 print((lambda a, b:a + b)(1, 2))
 ```
 
-高阶函数：把函数作为参数传入  
+#### 🔘 高阶函数
+
+把函数作为参数传入  
 高阶函数是函数式编程的体现  
 
 ``` python
@@ -750,8 +756,7 @@ print(ret)
 ret()
 ```
 
-
-# 文件操作
+### ⭕ 文件操作
 
 文件的访问模式：
 
@@ -765,7 +770,7 @@ ret()
 凡是有 `+` 就变为 **可读可写**  
 若不指定的话，默认为 `r`  
 
-文件读取：
+#### 🔘 文件读取
 
 ``` python
 with open('文件名', 'r') as f:
@@ -790,7 +795,7 @@ old_file.close()
 new_file.close()
 ```
 
-os 常用文件（夹）操作：
+#### 🔘 os 常用文件（夹）操作
 
 ``` python
 import os
@@ -810,8 +815,7 @@ os.chdir(目录)    # 切换目录
 os.listdir(目录)    # 获取目录中的文件，返回文件名的列表
 ```
 
-
-# 面向对象
+### ⭕ 面向对象
 
 面向对象的特性
 
@@ -881,7 +885,7 @@ haier1.price = 3000
         pass
     ```
 
-类的继承问题：
+#### 🔘 类的继承问题
 
 ``` python
 # 父类A
@@ -997,7 +1001,8 @@ super().make_cake()
 
 `super()` 可以自动查找父类。调用顺序遵循 `__mro__` 类属性的顺序，比较适合 **单继承** 使用
 
-私有属性：   
+#### 🔘 私有属性
+
 它们除了非特殊手段，只能 **在类里面访问和修改**  
 一般定义 `get_xx` 用来获取私有属性  
 定义 `set_xx` 用来修改私有属性值  
@@ -1010,7 +1015,8 @@ class myc(object):
         return self.__age    #获取私有属性
 ```
 
-私有方法：  
+#### 🔘 私有方法
+
 通过 `_类名__方法名` 访问  
 注意，直接 `__方法名` 是无法访问的  
 ``` python
@@ -1028,10 +1034,10 @@ tmp._myc__cal_area()    #正常返回值，但是这样做，一定程度会破�
 
 多态有点像高阶函数，类里面的函数调用不同的类，会有不同的输出  
 
+### ⭕ 类
 
-# 类
+#### 🔘 类属性和实例属性
 
-类属性和实例属性：  
 实例属性，要求 **每个对象** 为其 **单独** 开辟一份内存空间来记录数据  
 而类属性为 **全类所共有**，仅占用一份内存，更加节省内存空间  
 
@@ -1039,7 +1045,8 @@ tmp._myc__cal_area()    #正常返回值，但是这样做，一定程度会破�
 > 当记录的某项数据，且该数据始终保持一致时，则可以将其定义为类属性  
 > 类属性只能通过类对象修改，不能通过实例对象修改
 
-类方法：  
+#### 🔘 类方法
+
 需要用装饰器 `@classmethod` 来标识其为类方法  
 对于类方法，第一个参数必须是类对象，一般以 `cls` 作为第一个参数  
 当方法中 **需要使用类对象**（如访问私有类属性等）时，则考虑定义类方法
@@ -1053,7 +1060,8 @@ class Dog(object):
         return cls.__tooth
 ```
 
-静态方法：  
+#### 🔘 静态方法
+
 需要通过装饰器 `@staticmethod` 来进行修饰  
 静态方法既不需要传递类对象也不需要传递实例对象（**不需要形参 cls/self**）  
 静态方法能够通过 **类对象** 和 **实例对象** 去访问  
@@ -1070,8 +1078,7 @@ Dog.info_print()    # 静态方法能够通过类对象访问
 wangcai.info_print()    # 静态方法能够通过实例对象访问
 ```
 
-
-# 异常处理
+### ⭕ 异常处理
 
 ``` python
 异常传递
@@ -1088,7 +1095,7 @@ except:
 ```
 使用 `raise` 关键字可以显式地抛出异常，提供更多的异常信息和上下文，帮助调试和定位问题，而不使用 `raise` 则会隐式地抛出异常  
 
-自定义异常：
+#### 🔘 自定义异常
 
 ``` python
 # 通过继承 Exception 来自定义
@@ -1109,8 +1116,7 @@ else:
     。。。
 ```
 
-
-# 模块
+### ⭕ 模块
 
 模块(Module)，是一个 Python 文件，以 .py 结尾，包含了 Python 对象定义和 Python 语句  
 模块能定义函数，类和变量，模块里也能包含可执行的代码  
@@ -1187,3 +1193,61 @@ mymodule1.某方法()
 
 `__dict__` 查看对象所有的属性或者方法
 
+
+
+
+<style> 
+    .note { 
+        background-color: #f9f9f9; 
+        border: 1px solid #ddd; 
+        padding: 10px; 
+        border-radius: 10px; 
+        display: inline-block; 
+        font-weight: bold;
+        margin: 10px 0px;
+    }
+    .note:hover {
+        animation: gradient-in 0.5s forwards;
+    }
+    .note:not(:hover) {
+        animation: gradient-out 0.5s forwards;
+    }
+    @keyframes gradient-in {
+        0% {
+            background-color: #f9f9f9;
+        }
+        20% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #e1e1e1;
+        }
+    }
+    @keyframes gradient-out {
+        0% {
+            background-color: #e1e1e1;
+        }
+        80% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #f9f9f9;
+        }
+    }
+    .title1 { 
+        font-size: 24px; 
+        /* color: #333;  */
+    } 
+    .title2 { 
+        font-size: 20px; 
+        /* color: #555;  */
+    } 
+    .title3 { 
+        font-size: 16px; 
+        /* color: #777;  */
+    } 
+    /* .note:hover [class^="title"]{
+        font-size: 30px;
+        opacity: 0.6;
+    } */
+</style>

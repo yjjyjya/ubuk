@@ -1,0 +1,2063 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>openstack安装 · 优布克(your book)</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-accordion/accordion.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../about_ForeignTrade/" />
+    
+    
+    <link rel="prev" href="Windows上的Hadoop.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../assets/ubuk.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../assets/ubuk.ico' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../assets/ubuk.png'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="152x152" href="../assets/ubuk.png">
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../stipulation.html">
+            
+                <a href="../stipulation.html">
+            
+                    
+                    文档书写格式约定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../about_History/">
+            
+                <a href="../about_History/">
+            
+                    
+                    历史小记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../about_History/中国近代史.html">
+            
+                <a href="../about_History/中国近代史.html">
+            
+                    
+                    中国近代史简记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../about_History/会议概念理清.html">
+            
+                <a href="../about_History/会议概念理清.html">
+            
+                    
+                    会议概念理清
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../about_History/世界战争简记.html">
+            
+                <a href="../about_History/世界战争简记.html">
+            
+                    
+                    世界战争简记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../about_History/中东.html">
+            
+                <a href="../about_History/中东.html">
+            
+                    
+                    中东
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../about_Python/">
+            
+                <a href="../about_Python/">
+            
+                    
+                    Python 整理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../about_Python/python_tutorial1.html">
+            
+                <a href="../about_Python/python_tutorial1.html">
+            
+                    
+                    学习1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../about_Python/python_tutorial2.html">
+            
+                <a href="../about_Python/python_tutorial2.html">
+            
+                    
+                    学习2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../about_Python/语法知识.html">
+            
+                <a href="../about_Python/语法知识.html">
+            
+                    
+                    语法知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../about_Python/常见问题.html">
+            
+                <a href="../about_Python/常见问题.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../about_Python/帅地面试题.html">
+            
+                <a href="../about_Python/帅地面试题.html">
+            
+                    
+                    帅地面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../about_Python/深度学习.html">
+            
+                <a href="../about_Python/深度学习.html">
+            
+                    
+                    深度学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../about_Python/其他.html">
+            
+                <a href="../about_Python/其他.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../about_MySQL/">
+            
+                <a href="../about_MySQL/">
+            
+                    
+                    MySQL 整理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../about_MySQL/安装过程-windows.html">
+            
+                <a href="../about_MySQL/安装过程-windows.html">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../about_MySQL/一些函数和语句.html">
+            
+                <a href="../about_MySQL/一些函数和语句.html">
+            
+                    
+                    常用函数和语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../about_MySQL/跟着练习.html">
+            
+                <a href="../about_MySQL/跟着练习.html">
+            
+                    
+                    练习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../about_MySQL/常见问题.html">
+            
+                <a href="../about_MySQL/常见问题.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../about_StudyPath/">
+            
+                <a href="../about_StudyPath/">
+            
+                    
+                    学习路径
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../about_StudyPath/Web.html">
+            
+                <a href="../about_StudyPath/Web.html">
+            
+                    
+                    Web 知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../about_StudyPath/计算机操作系统.html">
+            
+                <a href="../about_StudyPath/计算机操作系统.html">
+            
+                    
+                    操作系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../about_Math/">
+            
+                <a href="../about_Math/">
+            
+                    
+                    数学小记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../about_Math/概率论与数理统计笔记.html">
+            
+                <a href="../about_Math/概率论与数理统计笔记.html">
+            
+                    
+                    概率论与数理统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../about_Math/高等数学.html">
+            
+                <a href="../about_Math/高等数学.html">
+            
+                    
+                    高等数学
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../about_Math/线性代数.html">
+            
+                <a href="../about_Math/线性代数.html">
+            
+                    
+                    线性代数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../about_Math/概率论.html">
+            
+                <a href="../about_Math/概率论.html">
+            
+                    
+                    概率论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../about_Math/统计相关.html">
+            
+                <a href="../about_Math/统计相关.html">
+            
+                    
+                    统计相关
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../about_Math/其他.html">
+            
+                <a href="../about_Math/其他.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../about_Algorithm/">
+            
+                <a href="../about_Algorithm/">
+            
+                    
+                    算法整理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../about_Algorithm/概述.html">
+            
+                <a href="../about_Algorithm/概述.html">
+            
+                    
+                    概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../about_Algorithm/常见算法模板.html">
+            
+                <a href="../about_Algorithm/常见算法模板.html">
+            
+                    
+                    常见算法模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../about_Algorithm/leetbook.html">
+            
+                <a href="../about_Algorithm/leetbook.html">
+            
+                    
+                    leetbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../about_Algorithm/奇妙操作.html">
+            
+                <a href="../about_Algorithm/奇妙操作.html">
+            
+                    
+                    奇妙操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../about_Linux/">
+            
+                <a href="../about_Linux/">
+            
+                    
+                    Linux 整理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../about_Linux/常用语句.html">
+            
+                <a href="../about_Linux/常用语句.html">
+            
+                    
+                    常用语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../about_Linux/常见问题.html">
+            
+                <a href="../about_Linux/常见问题.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../about_Linux/shell脚本.html">
+            
+                <a href="../about_Linux/shell脚本.html">
+            
+                    
+                    shell脚本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../about_Linux/在线扩容磁盘空间.html">
+            
+                <a href="../about_Linux/在线扩容磁盘空间.html">
+            
+                    
+                    磁盘扩容
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Cloud
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="云计算小知识.html">
+            
+                <a href="云计算小知识.html">
+            
+                    
+                    云计算小知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="hadoop小知识.html">
+            
+                <a href="hadoop小知识.html">
+            
+                    
+                    hadoop小知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="电子书《Hadoop数据分析》.html">
+            
+                <a href="电子书《Hadoop数据分析》.html">
+            
+                    
+                    电子书《Hadoop数据分析》
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="Windows上的Hadoop.html">
+            
+                <a href="Windows上的Hadoop.html">
+            
+                    
+                    Windows 上的 Hadoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.5" data-path="openstack安装.html">
+            
+                <a href="openstack安装.html">
+            
+                    
+                    openstack安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../about_ForeignTrade/">
+            
+                <a href="../about_ForeignTrade/">
+            
+                    
+                    外贸记录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../about_ForeignTrade/业务员学习.html">
+            
+                <a href="../about_ForeignTrade/业务员学习.html">
+            
+                    
+                    业务员学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../about_ForeignTrade/开发信内容.html">
+            
+                <a href="../about_ForeignTrade/开发信内容.html">
+            
+                    
+                    开发信内容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../about_ForeignTrade/快速沟通模板.html">
+            
+                <a href="../about_ForeignTrade/快速沟通模板.html">
+            
+                    
+                    快速沟通模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../about_ForeignTrade/每日.html">
+            
+                <a href="../about_ForeignTrade/每日.html">
+            
+                    
+                    每日
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../about_ForeignTrade/语法问题.html">
+            
+                <a href="../about_ForeignTrade/语法问题.html">
+            
+                    
+                    英语语法问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../about_Other/">
+            
+                <a href="../about_Other/">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../about_Other/百问百答.html">
+            
+                <a href="../about_Other/百问百答.html">
+            
+                    
+                    百问百答
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../about_Other/Git的使用.html">
+            
+                <a href="../about_Other/Git的使用.html">
+            
+                    
+                    Git的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../about_Other/关于FGO中的角色.html">
+            
+                <a href="../about_Other/关于FGO中的角色.html">
+            
+                    
+                    关于FGO中的一些角色
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../about_Other/一些乐理知识.html">
+            
+                <a href="../about_Other/一些乐理知识.html">
+            
+                    
+                    部分乐理知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../about_Other/五十音.html">
+            
+                <a href="../about_Other/五十音.html">
+            
+                    
+                    五十音
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../about_Other/bat语法.html">
+            
+                <a href="../about_Other/bat语法.html">
+            
+                    
+                    bat 语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../about_Other/Excel操作技巧.html">
+            
+                <a href="../about_Other/Excel操作技巧.html">
+            
+                    
+                    Excel 操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.8" data-path="../about_Other/JS基础.html">
+            
+                <a href="../about_Other/JS基础.html">
+            
+                    
+                    JS 基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.9" data-path="../about_Other/LaTex整理.html">
+            
+                <a href="../about_Other/LaTex整理.html">
+            
+                    
+                    LaTex 整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.10" data-path="../about_Other/Matlab整理.html">
+            
+                <a href="../about_Other/Matlab整理.html">
+            
+                    
+                    Matlab 整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.11" data-path="../about_Other/Docker基础.html">
+            
+                <a href="../about_Other/Docker基础.html">
+            
+                    
+                    Docker基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.12" data-path="../about_Other/PS操作.html">
+            
+                <a href="../about_Other/PS操作.html">
+            
+                    
+                    PS 操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.13" data-path="../about_Other/Redis整理.html">
+            
+                <a href="../about_Other/Redis整理.html">
+            
+                    
+                    Redis 整理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.14" data-path="../about_Other/sd绘画提示词.html">
+            
+                <a href="../about_Other/sd绘画提示词.html">
+            
+                    
+                    sd 绘画提示词
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.15" data-path="../about_Other/计算机网络.html">
+            
+                <a href="../about_Other/计算机网络.html">
+            
+                    
+                    计网
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.16" data-path="../about_Other/Gitbook的安装部署.html">
+            
+                <a href="../about_Other/Gitbook的安装部署.html">
+            
+                    
+                    Gitbook 的安装部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.17" data-path="../about_Other/网站收集.html">
+            
+                <a href="../about_Other/网站收集.html">
+            
+                    
+                    网站收集
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../leisure_time/">
+            
+                <a href="../leisure_time/">
+            
+                    
+                    休闲一下
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >openstack安装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x4E00;&#x3001;&#x73AF;&#x5883;&#x51C6;&#x5907;">&#x4E00;&#x3001;&#x73AF;&#x5883;&#x51C6;&#x5907;</h2>
+<blockquote>
+<h3 id="11-&#x73AF;&#x5883;">1.1 &#x73AF;&#x5883;</h3>
+</blockquote>
+<p><code>sudo passwd root</code>
+<code>sudo ufw disable</code></p>
+<blockquote>
+<h3 id="12-&#x6362;&#x6E90;">1.2 &#x6362;&#x6E90;</h3>
+</blockquote>
+<p><code>sudo vi /etc/apt/sources.list</code></p>
+<pre class="language-"><code>deb http://mirrors.tencentyun.com/ubuntu/ focal main restricted universe multiverse
+deb http://mirrors.tencentyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.tencentyun.com/ubuntu/ focal-updates main restricted universe multiverse
+# deb http://mirrors.tencentyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+# deb http://mirrors.tencentyun.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://mirrors.tencentyun.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://mirrors.tencentyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://mirrors.tencentyun.com/ubuntu/ focal-updates main restricted universe multiverse
+# deb-src http://mirrors.tencentyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+# deb-src http://mirrors.tencentyun.com/ubuntu/ focal-backports main restricted universe multiverse
+</code></pre><p><code>sudo apt update</code>
+<code>sudo apt upgrade</code></p>
+<blockquote>
+<h3 id="13-&#x7F51;&#x7EDC;&#x914D;&#x7F6E;">1.3 &#x7F51;&#x7EDC;&#x914D;&#x7F6E;</h3>
+</blockquote>
+<p><code>sudo vi /etc/sysctl.conf</code>
+&#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x4E0B;&#x9762;&#x8FD9;&#x884C;
+<code>net.ipv4.ip_forward=1</code>
+<code>sudo sysctl -p</code>
+<code>sudo vi /etc/network/interfaces</code></p>
+<pre class="language-"><code>auto lo
+iface lo inet loopback
+# The primary network interface
+auto eth0
+iface eth0 inet static
+address 10.0.24.13
+network 10.0.24.0
+netmask 255.255.255.0
+broadcast 10.0.24.255
+gateway 10.0.24.1
+</code></pre><p>&#x8BD5;&#x8BD5;&#x662F;&#x5426;&#x53EF;&#x4EE5; ping &#x901A;&#x767E;&#x5EA6; <code>ping baidu.com</code></p>
+<blockquote>
+<h3 id="14-&#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;&#x548C;ip&#x6620;&#x5C04;">1.4 &#x4FEE;&#x6539;&#x4E3B;&#x673A;&#x540D;&#x548C;IP&#x6620;&#x5C04;</h3>
+</blockquote>
+<p>&#x6CE8;&#x610F;&#x662F;&#x7528;&#x5185;&#x7F51;&#x6620;&#x5C04;
+<code>sudo vi /etc/hostname</code> &#x6539;&#x6210; controller&#xFF0C;&#x610F;&#x601D;&#x5373;&#x8BE5;&#x4E3B;&#x673A;&#x4F5C;&#x4E3A;&#x63A7;&#x5236;&#x8282;&#x70B9;
+<code>sudo vi /etc/hosts</code> &#x6CE8;&#x91CA;&#x6389; 127.0.1.1 &#x90A3;&#x4E00;&#x884C;
+&#x5728; <code>127.0.0.1 localhost</code> &#x540E;&#x9762;&#x52A0;&#x4E0A; controller
+&#x7136;&#x540E;&#x53E6;&#x8D77;&#x4E00;&#x884C;&#x6DFB;&#x52A0; <code>&#x5BF9;&#x5E94;&#x7684;IP&#x5730;&#x5740; controller</code>
+&#x518D;&#x91CD;&#x542F; <code>reboot</code></p>
+<blockquote>
+<h3 id="15-&#x8BBE;&#x7F6E;&#x65F6;&#x95F4;&#x670D;&#x52A1;">1.5 &#x8BBE;&#x7F6E;&#x65F6;&#x95F4;&#x670D;&#x52A1;</h3>
+</blockquote>
+<p><code>sudo apt install chrony</code>
+<code>sudo vi /etc/chrony/chrony.conf</code>
+&#x4FEE;&#x6539;&#x4E3A;&#x5982;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre class="language-"><code>#&#x6CE8;&#x610F;&#x6CE8;&#x91CA;&#x6389;&#x51E0;&#x4E2A;pool&#xFF0C;&#x6DFB;&#x52A0;server&#x3001;allow&#x3001;local
+
+# Welcome to the chrony configuration file. See chrony.conf(5) for more
+# information about usuable directives.
+
+# This will use (up to):
+# - 4 sources from ntp.ubuntu.com which some are ipv6 enabled
+# - 2 sources from 2.ubuntu.pool.ntp.org which is ipv6 enabled as well
+# - 1 source from [01].ubuntu.pool.ntp.org each (ipv4 only atm)
+# This means by default, up to 6 dual-stack and up to 2 additional IPv4-only
+# sources will be used.
+# At the same time it retains some protection against one of the entries being
+# down (compare to just using one of the lines). See (LP: #1754358) for the
+# discussion.
+#
+# About using servers from the NTP Pool Project in general see (LP: #104525).
+# Approved by Ubuntu Technical Board on 2011-02-08.
+# See http://www.pool.ntp.org/join.html for more information.
+#pool ntp.ubuntu.com        iburst maxsources 4
+#pool 0.ubuntu.pool.ntp.org iburst maxsources 1
+#pool 1.ubuntu.pool.ntp.org iburst maxsources 1
+#pool 2.ubuntu.pool.ntp.org iburst maxsources 2
+
+#&#x8FD9;&#x91CC;&#x662F;&#x65B0;&#x6DFB;&#x52A0;&#x7684;
+server controller iburst
+allow 0.0.0.0/0
+
+# This directive specify the location of the file containing ID/key pairs for
+# NTP authentication.
+keyfile /etc/chrony/chrony.keys
+
+# This directive specify the file into which chronyd will store the rate
+# information.
+driftfile /var/lib/chrony/chrony.drift
+
+# Uncomment the following line to turn logging on.
+#log tracking measurements statistics
+
+# Log files location.
+logdir /var/log/chrony
+
+# Stop bad estimates upsetting machine clock.
+maxupdateskew 100.0
+
+# This directive enables kernel synchronisation (every 11 minutes) of the
+# real-time clock. Note that it can&#x2019;t be used along with the &apos;rtcfile&apos; directive.
+rtcsync
+
+# Step the system clock instead of slewing it if the adjustment is larger than
+# one second, but only in the first three clock updates.
+makestep 1 3
+#&#x8FD9;&#x91CC;&#x662F;&#x65B0;&#x6DFB;&#x52A0;&#x7684;
+local stratum 10
+</code></pre><p>&#x91CD;&#x542F; chrony &#x670D;&#x52A1; <code>sudo service chrony restart</code>
+&#x68C0;&#x67E5;&#x662F;&#x5426;&#x8BBE;&#x7F6E;&#x6210;&#x529F;
+&#x6267;&#x884C; <code>chronyc sources</code> &#x5982;&#x679C;&#x662F; ^* &#x8BF4;&#x660E;&#x914D;&#x7F6E;&#x597D;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x662F; ? &#x8BF4;&#x660E;&#x6CA1;&#x6709;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5668;
+&#x6216;&#x8005;&#x6267;&#x884C; <code>timedatectl</code> System clock synchronized &#x4F1A;&#x53D8;&#x6210; yes&#xFF0C;&#x5426;&#x5219;&#x662F; no</p>
+<p>&#x8BBE;&#x7F6E;&#x65F6;&#x95F4;&#x540C;&#x6B65;&#xFF1A;</p>
+<pre class="language-"><code>sudo dpkg-reconfigure tzdata   #&#x9009;&#x62E9;&#x4E9A;&#x6D32;&#x4E0A;&#x6D77;
+sudo apt-get install ntpdate
+sudo ntpdate cn.pool.ntp.org
+</code></pre><blockquote>
+<h3 id="16-&#x4E0B;&#x8F7D;openstack&#x8F6F;&#x4EF6;&#x5305;">1.6 &#x4E0B;&#x8F7D;OpenStack&#x8F6F;&#x4EF6;&#x5305;</h3>
+</blockquote>
+<p><code>sudo add-apt-repository cloud-archive:yoga</code>
+&#x5B89;&#x88C5;&#x5BA2;&#x6237;&#x7AEF;
+<code>sudo apt install python3-openstackclient python3-pip</code></p>
+<ol>
+<li>&#x6570;&#x636E;&#x5E93;
+<code>sudo apt install python3-pymysql</code>
+<code>sudo apt install mariadb-server</code>
+&#x521B;&#x5EFA;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6; <code>sudo vi /etc/mysql/mariadb.conf.d/99-openstack.cnf</code>
+&#x5185;&#x5BB9;&#x5982;&#x4E0B;<pre class="language-"><code>[mysqld]
+bind-address = 10.0.24.13
+default-storage-engine = innodb
+innodb_file_per_table = on
+max_connections = 4096
+collation-server = utf8_general_ci
+character-set-server = utf8
+</code></pre>&#x91CD;&#x542F;&#x6570;&#x636E;&#x5E93; <code>sudo service mysql restart</code>
+&#x5207;&#x6362;&#x5230; root&#xFF0C;&#x968F;&#x540E;&#x914D;&#x7F6E;&#x4E00;&#x4E0B;&#x5BC6;&#x7801; <code>mysql_secure_installation</code></li>
+<li>&#x6D88;&#x606F;&#x961F;&#x5217;
+<code>sudo apt install rabbitmq-server</code>
+&#x521B;&#x5EFA; openstack &#x7528;&#x6237; <code>sudo rabbitmqctl add_user openstack admin</code> &#x7528;&#x6237;&#x540D;&#x4E3A; openstack &#xFF0C;&#x5BC6;&#x7801;&#x4E3A; admin
+&#x8D4B;&#x4E88;&#x6743;&#x9650; <code>sudo rabbitmqctl set_permissions openstack &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</code>
+&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x5728; /usr/lib/rabbitmq/lib/rabbitmq_server-3.8.2/sbin</li>
+<li>&#x7F13;&#x5B58;
+&#x5B89;&#x88C5; <code>sudo apt install memcached python3-memcache -y</code>
+&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6; <code>sudo vi /etc/memcached.conf</code> &#x5C06; 127.0.0.1 &#x66FF;&#x6362;&#x4E3A; controller &#x5BF9;&#x5E94;&#x7684; IP &#x5730;&#x5740;
+&#x91CD;&#x542F;&#x670D;&#x52A1; <code>sudo service memcached restart</code></li>
+<li>etcd
+<code>sudo apt install etcd -y</code>
+&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6; <code>sudo vi /etc/default/etcd</code> &#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF0C;&#x6CE8;&#x610F;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x6362;&#x6210; IP &#x5730;&#x5740;&#x7684;&#x5730;&#x65B9;<pre class="language-"><code>ETCD_NAME=&quot;controller&quot;
+ETCD_DATA_DIR=&quot;/var/lib/etcd&quot;
+ETCD_INITIAL_CLUSTER_STATE=&quot;new&quot;
+ETCD_INITIAL_CLUSTER_TOKEN=&quot;etcd-cluster-01&quot;
+ETCD_INITIAL_CLUSTER=&quot;controller=http://10.0.24.13:2380&quot;
+ETCD_INITIAL_ADVERTISE_PEER_URLS=&quot;http://10.0.24.13:2380&quot;
+ETCD_ADVERTISE_CLIENT_URLS=&quot;http://10.0.24.13:2379&quot;
+ETCD_LISTEN_PEER_URLS=&quot;http://0.0.0.0:2380&quot;
+ETCD_LISTEN_CLIENT_URLS=&quot;http://10.0.24.13:2379&quot;
+</code></pre>&#x542F;&#x52A8; etcd &#x670D;&#x52A1;
+<code>systemctl enable etcd</code>
+<code>systemctl restart etcd</code></li>
+</ol>
+<hr>
+<h2 id="&#x4E8C;&#x3001;openstack">&#x4E8C;&#x3001;OpenStack</h2>
+<blockquote>
+<h3 id="21-keystone">2.1 Keystone</h3>
+</blockquote>
+<p>&#x8FDB;&#x5165;root
+&#x8FDB;&#x5165; MySQL <code>mysql -uroot -p</code> &#x8F93;&#x5165;&#x5BC6;&#x7801;
+&#x6216;&#x8005; <code>mysql</code> &#x4E0D;&#x7528;&#x8F93;&#x5165;&#x5BC6;&#x7801;</p>
+<pre class="language-"><code>CREATE DATABASE keystone;
+GRANT ALL PRIVILEGES ON keystone.* TO &apos;keystone&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;
+GRANT ALL PRIVILEGES ON keystone.* TO &apos;keystone&apos;@&apos;%&apos; IDENTIFIED BY &apos;admin&apos;;
+</code></pre><p>&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x7684; IDENTIFIED BY &#x540E;&#x9762;&#x7684; admin&#xFF0C;&#x610F;&#x601D;&#x662F;&#x8BBE;&#x7F6E; MySQL &#x4E2D; keystone &#x7528;&#x6237;&#x7684;&#x5BC6;&#x7801;
+&#x5B89;&#x88C5; keystone &#x7EC4;&#x4EF6; <code>sudo apt install keystone</code>
+&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x5C0F;&#x5DE5;&#x5177;&#xFF0C;&#x65B9;&#x4FBF;&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6;
+<code>sudo apt install git</code>
+<code>sduo git config --global --unset http.https://github.com.proxy</code>
+<code>sudo git clone https://github.com/pixelb/crudini</code>
+<code>sudo apt install crudini</code>
+&#x4FEE;&#x6539;&#x914D;&#x7F6E;&#x6587;&#x4EF6; <code>sudo vi /etc/keystone/keystone.conf</code></p>
+<pre class="language-"><code>[database]
+&quot;mysql+pymysql://keystone:&#x4E0A;&#x9762;&#x8BBE;&#x7F6E;&#x7684;&#x5BC6;&#x7801;@controller/keystone&quot;
+
+[token]
+provider fernet
+</code></pre><p>&#x4E5F;&#x53EF;&#x4EE5;&#x7528; crudini&#xFF1A;
+<code>crudini --set /etc/keystone/keystone.conf database connection &quot;mysql+pymysql://keystone:admin@controller/keystone&quot;</code>
+<code>crudini --set /etc/keystone/keystone.conf token provider fernet</code>
+&#x586B;&#x5145;&#x6570;&#x636E;&#x5E93; <code>su -s /bin/sh -c &quot;keystone-manage db_sync&quot; keystone</code>
+&#x521D;&#x59CB;&#x5316;&#x4EE4;&#x724C;&#x4ED3;&#x5E93;
+<code>keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone</code>
+<code>keystone-manage credential_setup --keystone-user keystone --keystone-group keystone</code>
+&#x521B;&#x5EFA;&#x7BA1;&#x7406;&#x5458;&#x7528;&#x6237;</p>
+<pre class="language-"><code>keystone-manage bootstrap --bootstrap-password admin \
+  --bootstrap-admin-url http://controller:5000/v3/ \
+  --bootstrap-internal-url http://controller:5000/v3/ \
+  --bootstrap-public-url http://controller:5000/v3/ \
+  --bootstrap-region-id RegionOne
+</code></pre><p><code>sudo vi /etc/apache2/apache2.conf</code>
+&#x5F80;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0; <code>ServerName controller</code>
+&#x91CD;&#x542F;apache&#xFF0C;<code>sudo service apache2 restart</code>
+&#x6CE8;&#x610F;&#x5904;&#x5728;&#x666E;&#x901A;&#x7528;&#x6237;&#x4E0B;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6; <code>vi adminrc_keystone</code>&#xFF0C;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x5982;&#x4E0B;</p>
+<pre class="language-"><code>export OS_USERNAME=admin
+export OS_PASSWORD=admin
+export OS_PROJECT_NAME=admin
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+</code></pre><p><code>source adminrc_keystone</code>
+&#x5206;&#x522B;&#x521B;&#x5EFA;&#x76F8;&#x5E94;&#x7684;domain&#x3001;projects&#x7B49;&#xFF1A;</p>
+<pre class="language-"><code>openstack project create --domain default --description &quot;Service Project&quot; service
+openstack project create --domain default --description &quot;Demo Project&quot; demo
+openstack user create --domain default --password demo demo
+openstack role create role_demo
+openstack role add --project demo --user demo role_demo
+</code></pre><p>&#x6700;&#x540E;&#x9A8C;&#x8BC1;&#x4E00;&#x4E0B; <code>openstack token issue</code></p>
+<blockquote>
+<h3 id="22-glance">2.2 Glance</h3>
+</blockquote>
+<pre class="language-"><code>CREATE DATABASE glance;
+GRANT ALL PRIVILEGES ON glance.* TO &apos;glance&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;
+GRANT ALL PRIVILEGES ON glance.* TO &apos;glance&apos;@&apos;%&apos; IDENTIFIED BY &apos;admin&apos;;
+</code></pre><p><code>apt install glance -y</code></p>
+<pre class="language-"><code>openstack user create --domain default --password-prompt glance
+&#x6216;&#x8005;
+openstack user create --domain default --password admin glance
+
+openstack role add --project service --user glance admin
+openstack service create --name glance --description &quot;OpenStack Image&quot; image
+openstack endpoint create --region RegionOne image public http://controller:9292
+openstack endpoint create --region RegionOne image internal http://controller:9292
+openstack endpoint create --region RegionOne image admin http://controller:9292
+</code></pre><p><code>sudo vi /etc/glance/glance-api.conf</code></p>
+<pre class="language-"><code>[database] 1746
+# ...
+connection = mysql+pymysql://glance:admin@controller/glance
+
+[glance_store] 3141
+# ...
+stores = file,http
+default_store = file
+filesystem_store_datadir = /var/lib/glance/images/
+
+[keystone_authtoken] 4970
+# ...
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = glance
+password = admin
+
+[oslo_limit]
+auth_url = http://controller:5000
+auth_type = password
+user_domain_id = default
+username = glance
+system_scope = all
+password = admin
+service_name = glance
+region_name = RegionOne
+
+[paste_deploy] 5685
+# ...
+flavor = keystone
+</code></pre><p>&#x5904;&#x4E8E;&#x666E;&#x901A;&#x7528;&#x6237;&#x4E0B;&#xFF0C;&#x6388;&#x4E88;glance&#x7528;&#x6237;&#x6743;&#x9650; <code>openstack role add --user glance --user-domain Default --system all reader</code>
+&#x586B;&#x5145;&#x6570;&#x636E;&#x5E93; <code>su -s /bin/sh -c &quot;glance-manage db_sync&quot; glance</code>
+&#x91CD;&#x542F;&#x670D;&#x52A1; <code>service glance-api restart</code>
+&#x4E0B;&#x8F7D;&#x955C;&#x50CF; <code>wget http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img</code>
+&#x4E0A;&#x4F20; glance</p>
+<pre class="language-"><code>glance image-create --name &quot;cirros&quot; \
+  --file cirros-0.4.0-x86_64-disk.img \
+  --disk-format qcow2 --container-format bare \
+  --visibility=public
+</code></pre><p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>openstack image list</code> &#x6216;&#x8005; <code>glance image-list</code> &#x67E5;&#x770B;&#x955C;&#x50CF;</p>
+<blockquote>
+<h3 id="23-placement">2.3 Placement</h3>
+</blockquote>
+<pre class="language-"><code>CREATE DATABASE placement;
+GRANT ALL PRIVILEGES ON placement.* TO &apos;placement&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;
+GRANT ALL PRIVILEGES ON placement.* TO &apos;placement&apos;@&apos;%&apos; IDENTIFIED BY &apos;admin&apos;;
+</code></pre><pre class="language-"><code>openstack user create --domain default --password admin placement
+openstack role add --project service --user placement admin
+openstack service create --name placement --description &quot;Placement API&quot; placement
+openstack endpoint create --region RegionOne placement public http://controller:8778
+openstack endpoint create --region RegionOne placement internal http://controller:8778
+openstack endpoint create --region RegionOne placement admin http://controller:8778
+</code></pre><p><code>apt install placement-api</code></p>
+<pre class="language-"><code>crudini --set /etc/placement/placement.conf placement_database connection &quot;mysql+pymysql://placement:admin@controller/placement&quot;
+crudini --set /etc/placement/placement.conf api auth_strategy &quot;keystone&quot;
+
+crudini --set /etc/placement/placement.conf keystone_authtoken auth_url &quot;http://controller:5000/v3&quot;
+crudini --set /etc/placement/placement.conf keystone_authtoken memcached_servers &quot;controller:11211&quot;
+crudini --set /etc/placement/placement.conf keystone_authtoken auth_type &quot;password&quot;
+crudini --set /etc/placement/placement.conf keystone_authtoken project_domain_name &quot;Default&quot;
+crudini --set /etc/placement/placement.conf keystone_authtoken user_domain_name &quot;Default&quot;
+crudini --set /etc/placement/placement.conf keystone_authtoken project_name &quot;service&quot;
+crudini --set /etc/placement/placement.conf keystone_authtoken username &quot;placement&quot;
+crudini --set /etc/placement/placement.conf keystone_authtoken password admin
+echo &apos;succeed to config placement.conf [keystone_authtoken]&apos;
+
+su -s /bin/sh -c &quot;placement-manage db sync&quot; placement
+echo &apos;succeed to fullfill placement database&apos;
+
+service apache2 restart
+echo &apos;succeed restart apache2&apos;
+</code></pre><p>&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x914D;&#x7F6E;&#x597D; <code>placement-status upgrade check</code>
+<code>pip3 install osc-placement</code></p>
+<blockquote>
+<h3 id="24-nova">2.4 Nova</h3>
+</blockquote>
+<p>&#x56E0;&#x4E3A;&#x662F;allinone&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x6240;&#x4EE5;&#x5148;&#x6267;&#x884C;&#x63A7;&#x5236;&#x8282;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;&#x8BA1;&#x7B97;&#x8282;&#x70B9;</p>
+<pre class="language-"><code>CREATE DATABASE nova_api;
+CREATE DATABASE nova;
+CREATE DATABASE nova_cell0;
+
+GRANT ALL PRIVILEGES ON nova_api.* TO &apos;nova&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;
+GRANT ALL PRIVILEGES ON nova_api.* TO &apos;nova&apos;@&apos;%&apos; IDENTIFIED BY &apos;admin&apos;;
+
+GRANT ALL PRIVILEGES ON nova.* TO &apos;nova&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;
+GRANT ALL PRIVILEGES ON nova.* TO &apos;nova&apos;@&apos;%&apos; IDENTIFIED BY &apos;admin&apos;;
+
+GRANT ALL PRIVILEGES ON nova_cell0.* TO &apos;nova&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;
+GRANT ALL PRIVILEGES ON nova_cell0.* TO &apos;nova&apos;@&apos;%&apos; IDENTIFIED BY &apos;admin&apos;;
+</code></pre><pre class="language-"><code>openstack user create --domain default --password admin nova
+openstack role add --project service --user nova admin
+openstack service create --name nova --description &quot;OpenStack Compute&quot; compute
+
+openstack endpoint create --region RegionOne compute public http://controller:8774/v2.1
+openstack endpoint create --region RegionOne compute internal http://controller:8774/v2.1
+openstack endpoint create --region RegionOne compute admin http://controller:8774/v2.1
+</code></pre><p>&#x63A7;&#x5236;&#x8282;&#x70B9;
+<code>apt install nova-api nova-conductor nova-novncproxy nova-scheduler</code>
+<code>vi /etc/nova/nova.conf</code></p>
+<pre class="language-"><code>[api_database] 1090
+connection = mysql+pymysql://nova:admin@10.0.24.13/nova_api
+[database] 1775
+connection = mysql+pymysql://nova:admin@10.0.24.13/nova
+[default]
+transport_url = rabbit://openstack:admin@10.0.24.13:5672/
+[api] 880
+auth_strategy = keystone
+[keystone_authtoken] 2700
+www_authenticate_uri = http://10.0.24.13:5000/
+auth_url = http://10.0.24.13:5000/
+memcached_servers = 10.0.24.13:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = admin
+
+[DEFAULT]
+my_ip = 10.0.24.13
+
+[vnc] 5373
+enabled = true
+server_listen = 10.0.24.13
+server_proxyclient_address = 10.0.24.13
+
+[glance] 2078
+api_servers = http://10.0.24.13:9292
+
+[oslo_concurrency] 3767
+lock_path = /var/lib/nova/tmp
+
+[placement] 4335
+region_name = RegionOne
+project_domain_name = Default
+project_name = service
+auth_type = password
+user_domain_name = Default
+auth_url = http://10.0.24.13:5000/v3
+username = placement
+password = admin
+</code></pre><pre class="language-"><code>crudini --set /etc/nova/nova.conf api_database connection &quot;mysql+pymysql://nova:admin@controller/nova_api&quot;
+crudini --set /etc/nova/nova.conf database connection &quot;mysql+pymysql://nova:admin@controller/nova&quot;
+crudini --set /etc/nova/nova.conf DEFAULT transport_url &quot;rabbit://openstack:admin@controller:5672/&quot;
+crudini --set /etc/nova/nova.conf api auth_strategy &quot;keystone&quot;
+echo &apos;succeed to config database ,DEFAULT ,api in nova.conf&apos;
+
+crudini --set /etc/nova/nova.conf keystone_authtoken www_authenticate_uri &quot;http://controller:5000/&quot;
+crudini --set /etc/nova/nova.conf keystone_authtoken auth_url &quot;http://controller:5000/&quot;
+crudini --set /etc/nova/nova.conf keystone_authtoken memcached_servers &quot;controller:11211&quot;
+crudini --set /etc/nova/nova.conf keystone_authtoken auth_type password
+crudini --set /etc/nova/nova.conf keystone_authtoken project_domain_name Default
+crudini --set /etc/nova/nova.conf keystone_authtoken user_domain_name Default
+crudini --set /etc/nova/nova.conf keystone_authtoken project_name service
+crudini --set /etc/nova/nova.conf keystone_authtoken username nova
+crudini --set /etc/nova/nova.conf keystone_authtoken password admin
+echo &apos;succeed to config keystone_authtoken in nova.conf&apos;
+
+crudini --set /etc/nova/nova.conf DEFAULT my_ip 10.0.24.13
+
+crudini --set /etc/nova/nova.conf vnc enabled true
+crudini --set /etc/nova/nova.conf vnc my_ip 10.0.24.13
+
+crudini --set /etc/nova/nova.conf glance api_servers &quot;http://controller:9292&quot;
+crudini --set /etc/nova/nova.conf oslo_concurrency lock_path &quot;/var/lib/nova/tmp&quot;
+echo &apos;succeed config my_ip ,vnc ,glance in nova.conf&apos;
+
+crudini --set /etc/nova/nova.conf placement region_name RegionOne
+crudini --set /etc/nova/nova.conf placement project_domain_name Default
+crudini --set /etc/nova/nova.conf placement project_name service
+crudini --set /etc/nova/nova.conf placement auth_type password
+crudini --set /etc/nova/nova.conf placement user_domain_name Default
+crudini --set /etc/nova/nova.conf placement auth_url &quot;http://controller:5000/v3&quot;
+crudini --set /etc/nova/nova.conf placement username placement
+crudini --set /etc/nova/nova.conf placement password admin
+echo &apos;succeed to config placement in nova.conf&apos;
+
+su -s /bin/sh -c &quot;nova-manage api_db sync&quot; nova
+echo &apos;succeed to sync nova api database&apos;
+su -s /bin/sh -c &quot;nova-manage cell_v2 map_cell0&quot; nova
+echo &apos;succeed to register cell0 database&apos;
+su -s /bin/sh -c &quot;nova-manage cell_v2 create_cell --name=cell1 --verbose&quot; nova
+su -s /bin/sh -c &quot;nova-manage db sync&quot; nova
+echo &apos;succeed to fullfill nova database&apos;
+su -s /bin/sh -c &quot;nova-manage cell_v2 list_cells&quot; nova
+
+service nova-api restart
+service nova-scheduler restart
+service nova-conductor restart
+service nova-novncproxy restart
+</code></pre><p>&#x4E0B;&#x9762;&#x662F;&#x8BA1;&#x7B97;&#x8282;&#x70B9;
+<code>apt install nova-compute</code>
+<code>vi /etc/nova/nova.conf</code></p>
+<pre class="language-"><code>[DEFAULT]
+transport_url = rabbit://openstack:admin@10.0.24.13
+
+[api]
+auth_strategy = keystone
+
+[keystone_authtoken]
+www_authenticate_uri = http://10.0.24.13:5000/
+auth_url = http://10.0.24.13:5000/
+memcached_servers = 10.0.24.13:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = admin
+
+[DEFAULT]
+my_ip = 10.0.24.13
+
+[vnc]
+enabled = true
+server_listen = 0.0.0.0
+server_proxyclient_address = 10.0.24.13
+novncproxy_base_url = http://10.0.24.13:6080/vnc_auto.html
+
+[glance]
+api_servers = http://10.0.24.13:9292
+
+[oslo_concurrency]
+lock_path = /var/lib/nova/tmp
+
+[placement]
+region_name = RegionOne
+project_domain_name = Default
+project_name = service
+auth_type = password
+user_domain_name = Default
+auth_url = http://10.0.24.13:5000/v3
+username = placement
+password = admin
+</code></pre><pre class="language-"><code>crudini --set /etc/nova/nova.conf DEFAULT transport_url &quot;rabbit://openstack:admin@controller&quot;
+crudini --set /etc/nova/nova.conf api auth_strategy keystone
+echo &apos;succeed to config database ,api in nova.conf&apos;
+
+crudini --set /etc/nova/nova.conf keystone_authtoken www_authenticate_uri &quot;http://controller:5000/&quot;
+crudini --set /etc/nova/nova.conf keystone_authtoken auth_url &quot;http://controller:5000/&quot;
+crudini --set /etc/nova/nova.conf keystone_authtoken memcached_servers &quot;controller:11211&quot;
+crudini --set /etc/nova/nova.conf keystone_authtoken auth_type password
+crudini --set /etc/nova/nova.conf keystone_authtoken project_domain_name Default
+crudini --set /etc/nova/nova.conf keystone_authtoken user_domain_name Default
+crudini --set /etc/nova/nova.conf keystone_authtoken project_name service
+crudini --set /etc/nova/nova.conf keystone_authtoken username nova
+crudini --set /etc/nova/nova.conf keystone_authtoken password admin
+echo &apos;succeed to config keystone_authtoken in nova.conf&apos;
+
+crudini --set /etc/nova/nova.conf DEFAULT my_ip 10.0.24.13
+crudini --set /etc/nova/nova.conf vnc enabled true
+crudini --set /etc/nova/nova.conf vnc server_listen &quot;0.0.0.0&quot;
+crudini --set /etc/nova/nova.conf vnc server_proxyclient_address 10.0.24.13
+crudini --set /etc/nova/nova.conf vnc novncproxy_base_url &quot;http://controller:6080/vnc_auto.html&quot;
+echo &apos;succeed to config vnc in nova.conf&apos;
+
+crudini --set /etc/nova/nova.conf glance api_servers &quot;http://controller:9292&quot;
+crudini --set /etc/nova/nova.conf oslo_concurrency lock_path &quot;/var/lib/nova/tmp&quot;
+echo &apos;succeed to config glance ,oslo_concurrency in nova.conf&apos;
+
+crudini --set /etc/nova/nova.conf placement region_name RegionOne
+crudini --set /etc/nova/nova.conf placement project_domain_name Default
+crudini --set /etc/nova/nova.conf placement project_name service
+crudini --set /etc/nova/nova.conf placement auth_type password
+crudini --set /etc/nova/nova.conf placement user_domain_name Default
+crudini --set /etc/nova/nova.conf placement auth_url &quot;http://controller:5000/v3&quot;
+crudini --set /etc/nova/nova.conf placement username placement
+crudini --set /etc/nova/nova.conf placement password admin
+echo &apos;succeed to config placement in nova.conf&apos;
+
+crudini --set /etc/nova/nova-compute.conf libvirt virt_type qemu
+
+service nova-compute restart
+echo &apos;succeed to restart nova-compute&apos;
+</code></pre><blockquote>
+<h3 id="25-neutron">2.5 Neutron</h3>
+</blockquote>
+<p>&#x5148;&#x662F;&#x63A7;&#x5236;&#x8282;&#x70B9;</p>
+<pre class="language-"><code>CREATE DATABASE neutron;
+GRANT ALL PRIVILEGES ON neutron.* TO &apos;neutron&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;admin&apos;;
+GRANT ALL PRIVILEGES ON neutron.* TO &apos;neutron&apos;@&apos;%&apos; IDENTIFIED BY &apos;admin&apos;;
+</code></pre><pre class="language-"><code>openstack user create --domain default --password admin neutron
+openstack role add --project service --user neutron admin
+openstack service create --name neutron --description &quot;OpenStack Networking&quot; network
+openstack endpoint create --region RegionOne network public http://controller:9696
+openstack endpoint create --region RegionOne network internal http://controller:9696
+openstack endpoint create --region RegionOne network admin http://controller:9696
+</code></pre><p>&#x9009;&#x62E9;&#x521B;&#x5EFA;&#x81EA;&#x670D;&#x52A1;&#x670D;&#x52A1;&#x7F51;&#x7EDC;
+<code>apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent</code></p>
+<pre class="language-"><code>crudini --set /etc/neutron/neutron.conf database connection &quot;mysql+pymysql://neutron:admin@controller/neutron&quot;
+crudini --set /etc/neutron/neutron.conf DEFAULT core_plugin ml2
+crudini --set /etc/neutron/neutron.conf DEFAULT service_plugins router
+crudini --set /etc/neutron/neutron.conf DEFAULT allow_overlapping_ips true
+crudini --set /etc/neutron/neutron.conf DEFAULT transport_url &quot;rabbit://openstack:admin@controller&quot;
+crudini --set /etc/neutron/neutron.conf DEFAULT auth_strategy keystone
+crudini --set /etc/neutron/neutron.conf DEFAULT notify_nova_on_port_status_changes true
+crudini --set /etc/neutron/neutron.conf DEFAULT notify_nova_on_port_data_changes true
+echo &apos;succeed to config DEFAULT in neutron.conf&apos;
+
+crudini --set /etc/neutron/neutron.conf keystone_authtoken www_authenticate_uri &quot;http://controller:5000&quot;
+crudini --set /etc/neutron/neutron.conf keystone_authtoken auth_url &quot;http://controller:5000&quot;
+crudini --set /etc/neutron/neutron.conf keystone_authtoken memcached_servers &quot;controller:11211&quot;
+crudini --set /etc/neutron/neutron.conf keystone_authtoken auth_type password
+crudini --set /etc/neutron/neutron.conf keystone_authtoken project_domain_name Default
+crudini --set /etc/neutron/neutron.conf keystone_authtoken user_domain_name Default
+crudini --set /etc/neutron/neutron.conf keystone_authtoken project_name service
+crudini --set /etc/neutron/neutron.conf keystone_authtoken username neutron
+crudini --set /etc/neutron/neutron.conf keystone_authtoken password admin
+echo &apos;succeed to config keystone_authtoken in neutron.conf&apos;
+
+crudini --set /etc/neutron/neutron.conf nova auth_url &quot;http://controller:5000&quot;
+crudini --set /etc/neutron/neutron.conf nova auth_type password
+crudini --set /etc/neutron/neutron.conf nova project_domain_name Default
+crudini --set /etc/neutron/neutron.conf nova user_domain_name Default
+crudini --set /etc/neutron/neutron.conf nova region_name RegionOne
+crudini --set /etc/neutron/neutron.conf nova project_name service
+crudini --set /etc/neutron/neutron.conf nova username nova
+crudini --set /etc/neutron/neutron.conf nova password admin
+echo &apos;succeed to config nova in neutron.conf&apos;
+
+crudini --set /etc/neutron/neutron.conf oslo_concurrency lock_path &quot;/var/lib/neutron/tmp&quot;
+echo &apos;succeed to config oslo_concurrency in neutron.conf&apos;
+
+crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 type_drivers &quot;flat,vlan,vxlan&quot;
+crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 tenant_network_types vxlan
+crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 mechanism_drivers &quot;linuxbridge,l2population&quot;
+crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2 extension_drivers port_security
+echo &apos;succeed to config ml2 in ml2_conf.conf&apos;
+
+crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2_type_flat flat_networks provider
+crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini securitygroup enable_ipset true
+crudini --set /etc/neutron/plugins/ml2/ml2_conf.ini ml2_type_vxlan vni_ranges &quot;1:1000&quot;
+echo &apos;succeed to config ml2_type_* in ml2_conf.conf&apos;
+
+# &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x7684; ens33
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini linux_bridge physical_interface_mappings &quot;provider:eth0&quot;
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini vxlan enable_vxlan true
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini vxlan local_ip 10.0.24.13
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini vxlan l2_population true
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini securitygroup enable_security_group true
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini securitygroup firewall_driver &quot;neutron.agent.linux.iptables_firewall.IptablesFirewallDriver&quot;
+echo &apos;succeed to config linuxbridge.conf&apos;
+
+crudini --set /etc/neutron/l3_agent.ini DEFAULT interface_driver linuxbridge
+echo &apos;succeed to config l3_agent.conf&apos;
+
+crudini --set /etc/neutron/dhcp_agent.ini DEFAULT interface_driver linuxbridge
+crudini --set /etc/neutron/dhcp_agent.ini DEFAULT dhcp_driver &quot;neutron.agent.linux.dhcp.Dnsmasq&quot;
+crudini --set /etc/neutron/dhcp_agent.ini DEFAULT enable_isolated_metadata true
+echo &apos;succeed to config dhcp_agent.conf&apos;
+
+crudini --set /etc/neutron/metadata_agent.ini DEFAULT nova_metadata_host controller
+crudini --set /etc/neutron/metadata_agent.ini DEFAULT metadata_proxy_shared_secret 123456
+echo &apos;succeed to config metadata_agent.conf&apos;
+
+crudini --set /etc/nova/nova.conf neutron auth_url &quot;http://controller:5000&quot;
+crudini --set /etc/nova/nova.conf neutron auth_type password
+crudini --set /etc/nova/nova.conf neutron project_domain_name Default
+crudini --set /etc/nova/nova.conf neutron user_domain_name Default
+crudini --set /etc/nova/nova.conf neutron region_name RegionOne
+crudini --set /etc/nova/nova.conf neutron project_name service
+crudini --set /etc/nova/nova.conf neutron username neutron
+crudini --set /etc/nova/nova.conf neutron password admin
+crudini --set /etc/nova/nova.conf neutron service_metadata_proxy true
+crudini --set /etc/nova/nova.conf neutron metadata_proxy_shared_secret 123456
+echo &apos;succeed to config neutron in nova.conf&apos;
+
+su -s /bin/sh -c &quot;neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head&quot; neutron
+echo &apos;succeed to fullfill neutron database&apos;
+
+service nova-api restart
+service neutron-server restart
+service neutron-linuxbridge-agent restart
+service neutron-dhcp-agent restart
+service neutron-metadata-agent restart
+service neutron-l3-agent restart
+echo &apos;succeed to restart services&apos;
+</code></pre><p>&#x8BA1;&#x7B97;&#x8282;&#x70B9;
+<code>apt install neutron-linuxbridge-agent</code></p>
+<pre class="language-"><code>crudini --set /etc/neutron/neutron.conf DEFAULT transport_url &quot;rabbit://openstack:admin@controller&quot;
+crudini --set /etc/neutron/neutron.conf DEFAULT auth_strategy keystone
+echo &apos;succeed to config DEFAULT in neutron.conf&apos;
+
+crudini --set /etc/neutron/neutron.conf keystone_authtoken www_authenticate_uri &quot;http://controller:5000&quot;
+crudini --set /etc/neutron/neutron.conf keystone_authtoken auth_url &quot;http://controller:5000&quot;
+crudini --set /etc/neutron/neutron.conf keystone_authtoken memcached_servers &quot;controller:11211&quot;
+crudini --set /etc/neutron/neutron.conf keystone_authtoken auth_type password
+crudini --set /etc/neutron/neutron.conf keystone_authtoken project_domain_name Default
+crudini --set /etc/neutron/neutron.conf keystone_authtoken user_domain_name Default
+crudini --set /etc/neutron/neutron.conf keystone_authtoken project_name service
+crudini --set /etc/neutron/neutron.conf keystone_authtoken username neutron
+crudini --set /etc/neutron/neutron.conf keystone_authtoken password admin
+echo &apos;succeed to config keystone_authtoken in neutron.conf&apos;
+
+crudini --set /etc/neutron/neutron.conf oslo_concurrency lock_path &quot;/var/lib/neutron/tmp&quot;
+echo &apos;succeed to config oslo in neutron.conf&apos;
+
+# &#x6CE8;&#x610F;&#x4E0B;&#x9762;&#x7684;provider:ens33&#xFF0C;&#x7528;ifconfig&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x4E00;&#x4E0B;
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini linux_bridge physical_interface_mappings &quot;provider:eth0&quot;
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini vxlan enable_vxlan true
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini vxlan local_ip 10.0.24.13
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini vxlan l2_population true
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini securitygroup enable_security_group true
+crudini --set /etc/neutron/plugins/ml2/linuxbridge_agent.ini securitygroup firewall_driver &quot;neutron.agent.linux.iptables_firewall.IptablesFirewallDriver&quot;
+echo &apos;succeed to config linuxbridge_agent.ini&apos;
+
+crudini --set /etc/nova/nova.conf neutron auth_url &quot;http://controller:5000&quot;
+crudini --set /etc/nova/nova.conf neutron auth_type password
+crudini --set /etc/nova/nova.conf neutron project_domain_name Default
+crudini --set /etc/nova/nova.conf neutron user_domain_name Default
+crudini --set /etc/nova/nova.conf neutron region_name RegionOne
+crudini --set /etc/nova/nova.conf neutron project_name service
+crudini --set /etc/nova/nova.conf neutron username neutron
+crudini --set /etc/nova/nova.conf neutron password admin
+echo &apos;succeed to config neutron in nova.conf&apos;
+
+service nova-compute restart
+service neutron-linuxbridge-agent restart
+echo &apos;succeed to restart services&apos;
+</code></pre><p>&#x9A8C;&#x8BC1; <code>openstack extension list --network</code>
+<code>openstack network agent list</code></p>
+<blockquote>
+<h3 id="26-horizon">2.6 Horizon</h3>
+</blockquote>
+<p><code>apt install openstack-dashboard</code>
+<code>vi /etc/openstack-dashboard/local_settings.py</code></p>
+<pre class="language-"><code>126
+OPENSTACK_HOST = &quot;controller&quot;
+399
+ALLOWED_HOSTS = [&apos;*&apos;]
+112
+SESSION_ENGINE = &apos;django.contrib.sessions.backends.cache&apos;
+
+CACHES = {
+    &apos;default&apos;: {
+         &apos;BACKEND&apos;: &apos;django.core.cache.backends.memcached.MemcachedCache&apos;,
+         &apos;LOCATION&apos;: &apos;controller:11211&apos;,
+    }
+}
+OPENSTACK_KEYSTONE_URL = &quot;http://%s:5000&quot; % OPENSTACK_HOST
+OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
+OPENSTACK_API_VERSIONS = {
+    &quot;identity&quot;: 3,
+    &quot;image&quot;: 2,
+    &quot;volume&quot;: 3,
+}
+OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = &quot;Default&quot;
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = &quot;member&quot;
+OPENSTACK_NEUTRON_NETWORK = {
+    ...
+    &apos;enable_router&apos;: False,
+    &apos;enable_quotas&apos;: False,
+    &apos;enable_ipv6&apos;: False,
+    &apos;enable_distributed_router&apos;: False,
+    &apos;enable_ha_router&apos;: False,
+    &apos;enable_fip_topology_check&apos;: False,
+}
+TIME_ZONE = &quot;Asia/Shanghai&quot;
+</code></pre><p>&#x68C0;&#x9A8C;&#x5B89;&#x88C5;&#x7ED3;&#x679C; <code>nova-status upgrade check</code>
+&#x4F7F;&#x7528;&#x53EF;&#x89C6;&#x5316;&#x754C;&#x9762;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE; <code>http://IP&#x5730;&#x5740;/horizon</code>
+&#x8D26;&#x53F7;&#x5BC6;&#x7801;&#x5373; adminrc_keystone &#x91CC;&#x9762;&#x7684;&#x5185;&#x5BB9;</p>
+<hr>
+<h2 id="&#x4E09;&#x3001;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;">&#x4E09;&#x3001;&#x9047;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;</h2>
+<blockquote>
+<h3 id="31-ifconfig-&#x547D;&#x4EE4;&#x65E0;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;-ens33">3.1 <a href="https://www.cnblogs.com/PatrickLiu/p/8443019.html#:~:text=%E6%88%91%E5%B0%B1%E4%BD%BF%E7%94%A8%20ifconfig%20%E5%91%BD%E4%BB%A4%E5%9C%A8Linux,%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8C%E6%9D%A5%E6%A3%80%E6%9F%A5%E4%B8%80%E4%B8%8BIP%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8Cifconfig%20%E5%91%BD%E4%BB%A4%E4%B8%8B%E5%8F%91%E7%8E%B0%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3ens33%E4%B8%8D%E8%A7%81%E4%BA%86%EF%BC%8C%E5%8F%AA%E6%9C%89%E7%8E%AF%E5%9B%9E%E5%8F%A3%EF%BC%8C%E6%95%88%E6%9E%9C%E5%A6%82%E4%B8%8B%E6%88%AA%E5%9B%BE%EF%BC%9A%20%E4%BB%A5%E5%89%8D%E7%9A%84IP%E5%9C%B0%E5%9D%80%E6%B2%A1%E6%9C%89%E4%BA%86%EF%BC%8C%E5%8F%AA%E5%89%A9%E4%B8%8B%E8%BF%99%E4%B8%AA%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80%E4%BA%86127.0.0.1%EF%BC%8C%E5%8E%9F%E6%9D%A5%E9%97%AE%E9%A2%98%E5%87%BA%E7%8E%B0%E5%9C%A8%E8%BF%99%E9%87%8C%E3%80%82" target="_blank">ifconfig &#x547D;&#x4EE4;&#x65E0;&#x7F51;&#x7EDC;&#x63A5;&#x53E3; ens33</a></h3>
+</blockquote>
+<p>&#x4E0D;&#x662F;&#x63A5;&#x53E3;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x53EA;&#x662F;&#x63A5;&#x53E3;&#x6CA1;&#x6709;UP&#x3002;&#x9700;&#x8981;&#x5148;&#x542F;&#x7528;&#x7F51;&#x7EDC;&#xFF0C;&#x542F;&#x7528;&#x7F51;&#x7EDC;&#x65F6;&#x4F1A;&#x8C03;&#x7528;/sbin/dhclient&#xFF0C;&#x4E8E;&#x662F;&#x6267;&#x884C; <code>sudo /sbin/dhclient</code> &#x5373;&#x53EF;</p>
+<blockquote>
+<h3 id="32-log&#x6587;&#x4EF6;&#x4E2D;&#x62A5;&#x9519;-failed-to-create-resource-provider-controller">3.2 <a href="https://www.cnblogs.com/jimmyyang/p/13143453.html" target="_blank">log&#x6587;&#x4EF6;&#x4E2D;&#x62A5;&#x9519; Failed to create resource provider controller</a></h3>
+</blockquote>
+<p><code>mysql</code></p>
+<pre class="language-"><code>SHOW databases;
+USE nova-api;
+SELECT * FROM resource_provider;
+</code></pre><p>&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;resource_provider&#x8981;&#x662F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x6CA1;&#x6709;&#x5199;&#x5165;&#x6210;&#x529F;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x80FD;&#x662F;placement&#x7684;&#x76F8;&#x5173;&#x6743;&#x9650;&#x51FA;&#x4E86;&#x95EE;&#x9898;
+&#x8FD4;&#x56DE;&#x67E5;&#x770B;&#x5B89;&#x88C5;&#x6B65;&#x9AA4;&#x4E2D;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x51FA;&#x73B0;&#x9519;&#x8BEF;</p>
+<blockquote>
+<h3 id="33-rabbitmq&#x95EE;&#x9898;">3.3 <a href="https://blog.csdn.net/Qevery678/article/details/102599863" target="_blank">rabbitmq&#x95EE;&#x9898;</a></h3>
+</blockquote>
+<p><a href="https://blog.csdn.net/qq_41887560/article/details/106194494" target="_blank">https://blog.csdn.net/qq_41887560/article/details/106194494</a>
+&#x6CE8;&#x610F; /etc/hosts &#x6587;&#x4EF6;&#x7684;&#x914D;&#x7F6E;
+127.0.0.1 &#x90A3;&#x4E00;&#x884C;&#x540E;&#x9762;&#x9700;&#x8981;&#x52A0;&#x4E0A; hostname
+127.0.1.1 &#x90A3;&#x4E00;&#x884C;&#x9700;&#x8981;&#x6CE8;&#x91CA;&#x6389;
+&#x91CD;&#x542F;&#x670D;&#x52A1; <code>sudo systemctl restart rabbitmq.server</code>
+&#x67E5;&#x770B;&#x72B6;&#x6001; <code>sudo systemctl status rabbitmq.server</code></p>
+<blockquote>
+<h3 id="34-dashboard-&#x767B;&#x9646;&#x8BA4;&#x8BC1;&#x5931;&#x8D25;&#xFF0C;&#x663E;&#x793A;-invalid-credentials">3.4 <a href="https://blog.csdn.net/weixin_43863487/article/details/109604903" target="_blank">dashboard &#x767B;&#x9646;&#x8BA4;&#x8BC1;&#x5931;&#x8D25;&#xFF0C;&#x663E;&#x793A; invalid credentials</a></h3>
+</blockquote>
+<p><code>vi /etc/openstack-dashboard/local_settings.py</code>
+&#x4FEE;&#x6539;&#x7AEF;&#x53E3;&#x53F7;</p>
+<blockquote>
+<h3 id="35-&#x5982;&#x4F55;&#x521B;&#x5EFA;flavor">3.5 &#x5982;&#x4F55;&#x521B;&#x5EFA;flavor</h3>
+</blockquote>
+<p><code>nova flavor-list</code>
+<code>nova flavor-create --is-public true boshen_ram_1024_disk_1_vcpus_1 boshen_ram_1024_disk_1_vcpus_1 1024 1 1</code>
+<code>nova flavor-delete {name}</code></p>
+<blockquote>
+<h3 id="36-openstack&#x7528;&#x6237;&#x7BA1;&#x7406;">3.6 openstack&#x7528;&#x6237;&#x7BA1;&#x7406;</h3>
+</blockquote>
+<p><code>openstack user list</code>
+<code>openstack user delete glance</code></p>
+<p><code>openstack service list</code>
+<code>openstack service delete <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>service</span> <span class="token attr-name">ID</span><span class="token punctuation">&gt;</span></span></code></p>
+<blockquote>
+<h3 id="37-&#x8FD0;&#x884C;-vnc-&#x7070;&#x5C4F;&#x95EE;&#x9898;">3.7 <a href="https://blog.csdn.net/weixin_56017984/article/details/120519449?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-4-120519449-blog-109578971.pc_relevant_3mothn_strategy_recovery&amp;spm=1001.2101.3001.4242.3&amp;utm_relevant_index=7" target="_blank">&#x8FD0;&#x884C; VNC &#x7070;&#x5C4F;&#x95EE;&#x9898;</a></h3>
+</blockquote>
+<p>&#x914D;&#x7F6E;&#x9632;&#x706B;&#x5899;&#x7AEF;&#x53E3;
+<code>sudo -i</code>
+<code>sudo apt update</code>
+<code>sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop</code>
+<code>sudo apt-get install tightvncserver</code>
+<code>sudo vncserver</code>
+<code>sudo vi ~/.vnc/xstartup</code></p>
+<pre class="language-"><code>#!/bin/bash
+export $(dbus-launch)  
+export XKL_XMODMAP_DISABLE=1
+unset SESSION_MANAGER
+
+gnome-panel &amp;
+gnome-settings-daemon &amp;
+metacity &amp;
+nautilus &amp;
+gnome-terminal &amp;
+
+# [ -x /etc/vnc/xstartup ] &amp;&amp; exec /etc/vnc/xstartup
+# [ -r $HOME/.Xresources ] &amp;&amp; xrdb $HOME/.Xresources
+
+xsetroot -solid grey
+vncconfig -iconic &amp;
+x-terminal-emulator -geometry 80x24+10+10 -ls -title &quot;$VNCDESKTOP Desktop&quot; &amp;
+gnome-session &amp;
+
+VNCSERVERS=&quot;2:root&quot;
+VNCSERVERARGS[1]=&quot;-GEOMETRY 800&#xD7;600&quot;
+</code></pre><p><code>sudo vncserver -kill :1 #&#x6740;&#x6389;&#x539F;&#x684C;&#x9762;&#x8FDB;&#x7A0B;&#xFF0C;&#x8F93;&#x5165;&#x547D;&#x4EE4;&#xFF08;&#x5176;&#x4E2D;&#x7684;:1&#x662F;&#x684C;&#x9762;&#x53F7;&#xFF09;</code>
+<code>sudo vncserver -geometry 1920x1080 :1 #&#x751F;&#x6210;&#x65B0;&#x7684;&#x4F1A;&#x8BDD;</code>
+&#x4E0B;&#x8F7D; VNC viewer&#xFF0C;<a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank">https://www.realvnc.com/en/connect/download/viewer/</a></p>
+<hr>
+<h2 id="&#x53C2;&#x8003;&#x6587;&#x6863;">&#x53C2;&#x8003;&#x6587;&#x6863;</h2>
+<ol>
+<li><a href="https://blog.csdn.net/qq_41037945/article/details/124286616" target="_blank">https://blog.csdn.net/qq_41037945/article/details/124286616</a></li>
+<li>crudini&#x5DE5;&#x5177;&#xFF0C;<a href="https://github.com/pixelb/crudini" target="_blank">https://github.com/pixelb/crudini</a></li>
+</ol>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; all right reserved, powered by ... 2023</span><span class="footer-modification">&#x8BE5;&#x6587;&#x6863;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2024-01-23 22:50:37
+</span></footer><script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"sameUuid":true,"wrapAround":true});})</script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Windows上的Hadoop.html" class="navigation navigation-prev " aria-label="Previous page: Windows 上的 Hadoop">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../about_ForeignTrade/" class="navigation navigation-next " aria-label="Next page: 外贸记录">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"openstack安装","level":"1.10.5","depth":2,"next":{"title":"外贸记录","level":"1.11","depth":1,"path":"about_ForeignTrade/README.md","ref":"about_ForeignTrade/README.md","articles":[{"title":"业务员学习","level":"1.11.1","depth":2,"path":"about_ForeignTrade/业务员学习.md","ref":"about_ForeignTrade/业务员学习.md","articles":[]},{"title":"开发信内容","level":"1.11.2","depth":2,"path":"about_ForeignTrade/开发信内容.md","ref":"about_ForeignTrade/开发信内容.md","articles":[]},{"title":"快速沟通模板","level":"1.11.3","depth":2,"path":"about_ForeignTrade/快速沟通模板.md","ref":"about_ForeignTrade/快速沟通模板.md","articles":[]},{"title":"每日","level":"1.11.4","depth":2,"path":"about_ForeignTrade/每日.md","ref":"about_ForeignTrade/每日.md","articles":[]},{"title":"英语语法问题","level":"1.11.5","depth":2,"path":"about_ForeignTrade/语法问题.md","ref":"about_ForeignTrade/语法问题.md","articles":[]}]},"previous":{"title":"Windows 上的 Hadoop","level":"1.10.4","depth":2,"path":"about_Cloud/Windows上的Hadoop.md","ref":"about_Cloud/Windows上的Hadoop.md","articles":[]},"dir":"ltr"},"config":{"plugins":["favicon","insert-logo","code","-lunr","-search","search-pro","-highlight","prism","back-to-top-button","mathjax-pro","flexible-alerts","auto-scroll-table","lightbox","tbfed-pagefooter","accordion","livereload"],"?plugins":"注释：常用的插件，网上可以找到下面各插件的用途","root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © all right reserved, powered by ... 2023","modify_label":"该文档修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"accordion":{},"auto-scroll-table":{},"code":{"copyButtons":true},"zymplayer":{"element":"body","width":"200px","mode":"random","show":"all","list":{"path":"/ubuk/assets/music/musicList.json","height":180,"expand":false},"position":{"pos":"fixed","right":"0px","bottom":"0px"}},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/ubuk.ico","bookmark":"assets/ubuk.ico","appleTouch":"assets/ubuk.png","appleTouchMore":{"152x152":"assets/ubuk.png"}},"lightbox":{"jquery":true,"options":{"resizeDuration":200,"sameUuid":true,"wrapAround":true},"sameUuid":false},"back-to-top-button":{},"mathjax-pro":{"forceSVG":false,"version":"2.7.7"},"flexible-alerts":{"style":"callout","note":{"label":"NOTE","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Danger","icon":"fa fa-ban","className":"danger"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"url":"/assets/ubuk.png","style":"background: none; max-height: 100px; min-height: 30px"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"优布克(your book)","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"about_Cloud/openstack安装.md","mtime":"2024-01-23T14:50:37.555Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-01-24T14:19:44.995Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax-pro/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-accordion/accordionSelector.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

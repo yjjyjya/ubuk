@@ -40,6 +40,8 @@ docs/about_Python/datascience_manual/
 docs/about_Python/datastructure/
 node_modules/
 docs/about_Python/black_horse/course2/day*
+docs/about_Math/mit-18.06-linalg-notes-master/
+docs/about_Math/Statistics-note-master/
 
 # gitbook build 的时候需要注释，构建的时候不能忽略
 # 但是提交到 gitee 的时候取消注释，提交的时候需要忽略

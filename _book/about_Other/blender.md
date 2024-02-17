@@ -1,10 +1,18 @@
-# Blender 学习
-
-## 参考资料
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨参考资料</span> 
+    </div> 
+</div>
 
 https://blog.csdn.net/fruiva/article/details/93123915
 
-## 常用操作
+---
+
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨常用操作</span> 
+    </div> 
+</div>
 
 鼠标放在区域的四个角上会变成十字，拖动可以快速分割区域  
 `Ctrl + 空格键` 最大化当前所在区域  
@@ -20,8 +28,13 @@ https://blog.csdn.net/fruiva/article/details/93123915
     `Alt + G` 快速将物体移动到 **原点** 位置  
     每个物体上面黄色的点，本质上是存储每一个 **物体信息** 的 **数据点**  
 
+---
 
-## 快捷操作
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨快捷操作</span> 
+    </div> 
+</div>
 
 `Shift + A` 新建物体，有唯一一次机会可以更改参数  
 点击物体，`Shift + S` 出现目录，选中项，移动物体  
@@ -35,8 +48,13 @@ https://blog.csdn.net/fruiva/article/details/93123915
 `滚轮` 放大缩小
 F12 进入渲染层级
 
+---
 
-## 点线面的选择和控制
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨点线面的选择和控制</span> 
+    </div> 
+</div>
 
 选中模型 `Tab 键` 进入编辑模式（可以修改物体的点线面），再按一次 `Tab 键` 回到物体模式  
 Tip：编辑-偏好设置-键位映射-勾选拖动时的饼菜单  
@@ -50,7 +68,13 @@ Tip：编辑-偏好设置-键位映射-勾选拖动时的饼菜单
 法向，用于标识平面的正反。打开 **面朝向** 功能，可以清晰的看出正反面，**蓝正红反**。`Shift + N` 将平面向内翻转  
 法线，垂直于平面的线，也可以标识面的正反方向  
 
-## 十大建模操作
+---
+
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨十大建模操作</span> 
+    </div> 
+</div>
 
 ### 挤出并移动 E
 
@@ -105,8 +129,13 @@ Ctrl + Z 进行撤回，鼠标右键撤销仅仅是撤销了移动，挤出还�
 
 选中物体后，p键 分离选中项
 
+---
 
-## 常用修改器
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨常用修改器</span> 
+    </div> 
+</div>
 
 修改器是非破坏性建模方式，在应用修改器之前都可以随意修改
 点击物体后，右侧有个小扳手，点击选中需要的修改器
@@ -122,15 +151,13 @@ Ctrl + Z 进行撤回，鼠标右键撤销仅仅是撤销了移动，挤出还�
 ### 倒角
 
 
+---
 
-## 辅助工具
-
-
-
-
-
-
-
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨辅助工具</span> 
+    </div> 
+</div>
 
 
 
@@ -149,7 +176,16 @@ Ctrl + Z 进行撤回，鼠标右键撤销仅仅是撤销了移动，挤出还�
 
 
 
-## 实例
+
+
+
+---
+
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨示例</span> 
+    </div> 
+</div>
 
 ### 制作蛋糕
 
@@ -173,3 +209,62 @@ ctrl + r 环切柱体
 
 
 
+
+
+
+
+<style> 
+    .note { 
+        background-color: #f9f9f9; 
+        border: 1px solid #ddd; 
+        padding: 10px; 
+        border-radius: 10px; 
+        display: inline-block; 
+        font-weight: bold;
+        margin: 10px 0px;
+    }
+    .note:hover {
+        animation: gradient-in 0.5s forwards;
+    }
+    .note:not(:hover) {
+        animation: gradient-out 0.5s forwards;
+    }
+    @keyframes gradient-in {
+        0% {
+            background-color: #f9f9f9;
+        }
+        20% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #e1e1e1;
+        }
+    }
+    @keyframes gradient-out {
+        0% {
+            background-color: #e1e1e1;
+        }
+        80% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #f9f9f9;
+        }
+    }
+    .title1 { 
+        font-size: 24px; 
+        /* color: #333;  */
+    } 
+    .title2 { 
+        font-size: 20px; 
+        /* color: #555;  */
+    } 
+    .title3 { 
+        font-size: 16px; 
+        /* color: #777;  */
+    } 
+    /* .note:hover [class^="title"]{
+        font-size: 30px;
+        opacity: 0.6;
+    } */
+</style>

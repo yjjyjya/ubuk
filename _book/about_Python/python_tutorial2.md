@@ -10,7 +10,7 @@
 
 <div class="container" style="text-align: center;">
     <div class="note">
-        <span class="title1">✨系统监控信息</span> 
+        <span class="title1">✨获取系统监控信息</span> 
     </div> 
 </div>
 
@@ -127,7 +127,11 @@ import yagmail
 
 ``` python
 # 先创建对象
-ya_obj = yagmail.SMTP(user="发件人邮箱", password="授权码（非密码，在邮箱设置）", host="网易邮箱服务器smtp.163.com")
+ya_obj = yagmail.SMTP(
+    user = "发件人邮箱", 
+    password = "授权码（非密码，在邮箱设置）", 
+    host = "网易邮箱服务器smtp.163.com"
+)
 
 
 # 配置邮件内容
@@ -185,14 +189,17 @@ mysocket.close()
 # 发送数据
 .sendto(参数一:待发送数据的二进制格式, 参数二:发送方的IP和端口号)
 # 示例
-mysocket.sendto('hello!'.encode(), ('192.168.166.166', 8080))
+mysocket.sendto(
+    'hello!'.encode(), 
+    ('192.168.166.166', 8080)
+)
 
 
 # 接收数据
-# recvfrom 方法会造成程序的阻塞，一直等待直到收到数据
 .recvfrom(参数:数据大小，单位字节)
 # 示例
 mysocket.recvfrom(1024)    # 表示从套接字中接受 1024 个字节的数据
+# recvfrom 方法会造成程序的阻塞，一直等待直到收到数据
 # 收到的数据为元组：(内容的二进制形式, (发送方的 IP, 发送方的端口号))
 ```
 
@@ -1177,6 +1184,40 @@ with Myfile('???.x=txt', 'r') as f:
     data = f.read()
     print(data)
 ```
+
+### ⭕ 文件 I/O
+
+- DataFrame 写入文件  
+    ``` python
+    df.to_excel('。。。.xlsx', index=False)
+    df.to_csv('。。。.csv', index=False)
+    ```
+
+- 路径标准化  
+    ``` python
+    import os
+    input_path = 'D:/jupyterproject/logo.jpg   '
+    input_file = os.path.normpath(input_path.strip())
+    # normpath 统一为双反斜杠类型的 \\
+    ```
+
+- 图片的读取  
+    ``` python
+    input_file = '???.jpg'
+    from PIL import Image 
+    import numpy as np
+
+    image = Image.open(input_file) # 用PIL中的Image.open打开图像
+    image = image.resize((512, 512), Image.LANCZOS)    #修改图片大小
+    image = image.convert('RGB')                       #转换成RGB模式
+    raw_image = np.array(image)                        #转化成numpy数组
+    print(raw_image.size)
+
+    image_PIL = Image.fromarray(
+        np.uint8(raw_image).reshape((512, 512, 3)),
+        mode="RGB",    #array转换成图片
+    )
+    ```
 
 
 

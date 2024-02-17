@@ -36,17 +36,17 @@ def add_anchor_tags(filepath):
     S = 1
     T = 1
     for line in content:
-        if '#####' in line.split(' '):
-            anchor.append(f"        - [{line.split('#####')[-1].strip()}](#{str(F-1)+'_'+str(S-1)+'_'+str(T)})  \n")
+        if '#### 🔘 ' in line:
+            anchor.append(f"        - [{line.split('#### 🔘 ')[-1].strip()}](#{str(F-1)+'_'+str(S-1)+'_'+str(T)})  \n")
             updated_content.append(f"<a id='{str(F-1)+'_'+str(S-1)+'_'+str(T)}'></a>\n")
             T += 1
-        elif '####' in line.split(' '):
-            anchor.append(f"    - [{line.split('####')[-1].strip()}](#{str(F-1)+'_'+str(S)})  \n")
+        elif '### ⭕ ' in line:
+            anchor.append(f"    - [{line.split('### ⭕ ')[-1].strip()}](#{str(F-1)+'_'+str(S)})  \n")
             updated_content.append(f"<a id='{str(F-1)+'_'+str(S)}'></a>\n")
             S += 1
             T = 1
-        elif '###' in line.split(' '):
-            anchor.append(f"- [{line.split('###')[-1].strip()}](#{str(F)})  \n")
+        elif '<span class="title1">' in line:
+            anchor.append(f"- [{line.split('✨')[-1].strip()[:-7]}](#{str(F)})  \n")
             updated_content.append(f"<a id='{str(F)}'></a>\n")
             F += 1
             S = 1

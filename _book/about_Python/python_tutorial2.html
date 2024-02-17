@@ -90,7 +90,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="语法知识.html" />
+    <link rel="next" href="常见问题Updated.html" />
     
     
     <link rel="prev" href="python_tutorial1.html" />
@@ -274,22 +274,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="语法知识.html">
+        <li class="chapter " data-level="1.4.3" data-path="常见问题Updated.html">
             
-                <a href="语法知识.html">
-            
-                    
-                    语法知识
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.4" data-path="常见问题.html">
-            
-                <a href="常见问题.html">
+                <a href="常见问题Updated.html">
             
                     
                     常见问题
@@ -300,12 +287,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="帅地面试题.html">
+        <li class="chapter " data-level="1.4.4" data-path="机器学习.html">
             
-                <a href="帅地面试题.html">
+                <a href="机器学习.html">
             
                     
-                    帅地面试题
+                    机器学习
             
                 </a>
             
@@ -313,25 +300,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="深度学习.html">
+        <li class="chapter " data-level="1.4.5" data-path="深度学习.html">
             
                 <a href="深度学习.html">
             
                     
                     深度学习
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="其他.html">
-            
-                <a href="其他.html">
-            
-                    
-                    其他
             
                 </a>
             
@@ -1175,7 +1149,7 @@
 <hr>
 <div class="container" style="text-align: center;">
     <div class="note">
-        <span class="title1">&#x2728;&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;&#x4FE1;&#x606F;</span> 
+        <span class="title1">&#x2728;&#x83B7;&#x53D6;&#x7CFB;&#x7EDF;&#x76D1;&#x63A7;&#x4FE1;&#x606F;</span> 
     </div> 
 </div>
 
@@ -1265,7 +1239,11 @@ log_template <span class="token operator">=</span> <span class="token string-int
 <span class="token keyword">import</span> yagmail
 </code></pre>
 <pre class="language-"><code class="lang-python"><span class="token comment"># &#x5148;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span>
-ya_obj <span class="token operator">=</span> yagmail<span class="token punctuation">.</span>SMTP<span class="token punctuation">(</span>user<span class="token operator">=</span><span class="token string">&quot;&#x53D1;&#x4EF6;&#x4EBA;&#x90AE;&#x7BB1;&quot;</span><span class="token punctuation">,</span> password<span class="token operator">=</span><span class="token string">&quot;&#x6388;&#x6743;&#x7801;&#xFF08;&#x975E;&#x5BC6;&#x7801;&#xFF0C;&#x5728;&#x90AE;&#x7BB1;&#x8BBE;&#x7F6E;&#xFF09;&quot;</span><span class="token punctuation">,</span> host<span class="token operator">=</span><span class="token string">&quot;&#x7F51;&#x6613;&#x90AE;&#x7BB1;&#x670D;&#x52A1;&#x5668;smtp.163.com&quot;</span><span class="token punctuation">)</span>
+ya_obj <span class="token operator">=</span> yagmail<span class="token punctuation">.</span>SMTP<span class="token punctuation">(</span>
+    user <span class="token operator">=</span> <span class="token string">&quot;&#x53D1;&#x4EF6;&#x4EBA;&#x90AE;&#x7BB1;&quot;</span><span class="token punctuation">,</span> 
+    password <span class="token operator">=</span> <span class="token string">&quot;&#x6388;&#x6743;&#x7801;&#xFF08;&#x975E;&#x5BC6;&#x7801;&#xFF0C;&#x5728;&#x90AE;&#x7BB1;&#x8BBE;&#x7F6E;&#xFF09;&quot;</span><span class="token punctuation">,</span> 
+    host <span class="token operator">=</span> <span class="token string">&quot;&#x7F51;&#x6613;&#x90AE;&#x7BB1;&#x670D;&#x52A1;&#x5668;smtp.163.com&quot;</span>
+<span class="token punctuation">)</span>
 
 
 <span class="token comment"># &#x914D;&#x7F6E;&#x90AE;&#x4EF6;&#x5185;&#x5BB9;</span>
@@ -1309,14 +1287,17 @@ mysocket<span class="token punctuation">.</span>close<span class="token punctuat
 <pre class="language-"><code class="lang-python"><span class="token comment"># &#x53D1;&#x9001;&#x6570;&#x636E;</span>
 <span class="token punctuation">.</span>sendto<span class="token punctuation">(</span>&#x53C2;&#x6570;&#x4E00;<span class="token punctuation">:</span>&#x5F85;&#x53D1;&#x9001;&#x6570;&#x636E;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;<span class="token punctuation">,</span> &#x53C2;&#x6570;&#x4E8C;<span class="token punctuation">:</span>&#x53D1;&#x9001;&#x65B9;&#x7684;IP&#x548C;&#x7AEF;&#x53E3;&#x53F7;<span class="token punctuation">)</span>
 <span class="token comment"># &#x793A;&#x4F8B;</span>
-mysocket<span class="token punctuation">.</span>sendto<span class="token punctuation">(</span><span class="token string">&apos;hello!&apos;</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token string">&apos;192.168.166.166&apos;</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+mysocket<span class="token punctuation">.</span>sendto<span class="token punctuation">(</span>
+    <span class="token string">&apos;hello!&apos;</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    <span class="token punctuation">(</span><span class="token string">&apos;192.168.166.166&apos;</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
 
 
 <span class="token comment"># &#x63A5;&#x6536;&#x6570;&#x636E;</span>
-<span class="token comment"># recvfrom &#x65B9;&#x6CD5;&#x4F1A;&#x9020;&#x6210;&#x7A0B;&#x5E8F;&#x7684;&#x963B;&#x585E;&#xFF0C;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x76F4;&#x5230;&#x6536;&#x5230;&#x6570;&#x636E;</span>
 <span class="token punctuation">.</span>recvfrom<span class="token punctuation">(</span>&#x53C2;&#x6570;<span class="token punctuation">:</span>&#x6570;&#x636E;&#x5927;&#x5C0F;&#xFF0C;&#x5355;&#x4F4D;&#x5B57;&#x8282;<span class="token punctuation">)</span>
 <span class="token comment"># &#x793A;&#x4F8B;</span>
 mysocket<span class="token punctuation">.</span>recvfrom<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>    <span class="token comment"># &#x8868;&#x793A;&#x4ECE;&#x5957;&#x63A5;&#x5B57;&#x4E2D;&#x63A5;&#x53D7; 1024 &#x4E2A;&#x5B57;&#x8282;&#x7684;&#x6570;&#x636E;</span>
+<span class="token comment"># recvfrom &#x65B9;&#x6CD5;&#x4F1A;&#x9020;&#x6210;&#x7A0B;&#x5E8F;&#x7684;&#x963B;&#x585E;&#xFF0C;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#x76F4;&#x5230;&#x6536;&#x5230;&#x6570;&#x636E;</span>
 <span class="token comment"># &#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x4E3A;&#x5143;&#x7EC4;&#xFF1A;(&#x5185;&#x5BB9;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5F62;&#x5F0F;, (&#x53D1;&#x9001;&#x65B9;&#x7684; IP, &#x53D1;&#x9001;&#x65B9;&#x7684;&#x7AEF;&#x53E3;&#x53F7;))</span>
 </code></pre>
 <h3 id="&#x2B55;-&#x5185;&#x5BB9;&#x89E3;&#x7801;">&#x2B55; &#x5185;&#x5BB9;&#x89E3;&#x7801;</h3>
@@ -2059,6 +2040,38 @@ obj<span class="token punctuation">.</span>goods <span class="token operator">=<
     data <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
 </code></pre>
+<h3 id="&#x2B55;-&#x6587;&#x4EF6;-io">&#x2B55; &#x6587;&#x4EF6; I/O</h3>
+<ul>
+<li><p>DataFrame &#x5199;&#x5165;&#x6587;&#x4EF6;  </p>
+<pre class="language-"><code class="lang-python">  df<span class="token punctuation">.</span>to_excel<span class="token punctuation">(</span><span class="token string">&apos;&#x3002;&#x3002;&#x3002;.xlsx&apos;</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+  df<span class="token punctuation">.</span>to_csv<span class="token punctuation">(</span><span class="token string">&apos;&#x3002;&#x3002;&#x3002;.csv&apos;</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p>&#x8DEF;&#x5F84;&#x6807;&#x51C6;&#x5316;  </p>
+<pre class="language-"><code class="lang-python">  <span class="token keyword">import</span> os
+  input_path <span class="token operator">=</span> <span class="token string">&apos;D:/jupyterproject/logo.jpg   &apos;</span>
+  input_file <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>normpath<span class="token punctuation">(</span>input_path<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token comment"># normpath &#x7EDF;&#x4E00;&#x4E3A;&#x53CC;&#x53CD;&#x659C;&#x6760;&#x7C7B;&#x578B;&#x7684; \\</span>
+</code></pre>
+</li>
+<li><p>&#x56FE;&#x7247;&#x7684;&#x8BFB;&#x53D6;  </p>
+<pre class="language-"><code class="lang-python">  input_file <span class="token operator">=</span> <span class="token string">&apos;???.jpg&apos;</span>
+  <span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image 
+  <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
+
+  image <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>input_file<span class="token punctuation">)</span> <span class="token comment"># &#x7528;PIL&#x4E2D;&#x7684;Image.open&#x6253;&#x5F00;&#x56FE;&#x50CF;</span>
+  image <span class="token operator">=</span> image<span class="token punctuation">.</span>resize<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Image<span class="token punctuation">.</span>LANCZOS<span class="token punctuation">)</span>    <span class="token comment">#&#x4FEE;&#x6539;&#x56FE;&#x7247;&#x5927;&#x5C0F;</span>
+  image <span class="token operator">=</span> image<span class="token punctuation">.</span>convert<span class="token punctuation">(</span><span class="token string">&apos;RGB&apos;</span><span class="token punctuation">)</span>                       <span class="token comment">#&#x8F6C;&#x6362;&#x6210;RGB&#x6A21;&#x5F0F;</span>
+  raw_image <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span>image<span class="token punctuation">)</span>                        <span class="token comment">#&#x8F6C;&#x5316;&#x6210;numpy&#x6570;&#x7EC4;</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span>raw_image<span class="token punctuation">.</span>size<span class="token punctuation">)</span>
+
+  image_PIL <span class="token operator">=</span> Image<span class="token punctuation">.</span>fromarray<span class="token punctuation">(</span>
+      np<span class="token punctuation">.</span>uint8<span class="token punctuation">(</span>raw_image<span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      mode<span class="token operator">=</span><span class="token string">&quot;RGB&quot;</span><span class="token punctuation">,</span>    <span class="token comment">#array&#x8F6C;&#x6362;&#x6210;&#x56FE;&#x7247;</span>
+  <span class="token punctuation">)</span>
+</code></pre>
+</li>
+</ul>
 <style> 
     .note { 
         background-color: #f9f9f9; 
@@ -2116,7 +2129,7 @@ obj<span class="token punctuation">.</span>goods <span class="token operator">=<
 </style> 
 
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; all right reserved, powered by ... 2023</span><span class="footer-modification">&#x8BE5;&#x6587;&#x6863;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2024-01-23 22:27:47
+2024-02-13 00:02:53
 </span></footer><script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"sameUuid":true,"wrapAround":true});})</script>
                                 
                                 </section>
@@ -2149,7 +2162,7 @@ obj<span class="token punctuation">.</span>goods <span class="token operator">=<
                 </a>
                 
                 
-                <a href="语法知识.html" class="navigation navigation-next " aria-label="Next page: 语法知识">
+                <a href="常见问题Updated.html" class="navigation navigation-next " aria-label="Next page: 常见问题">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2160,7 +2173,7 @@ obj<span class="token punctuation">.</span>goods <span class="token operator">=<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"学习2","level":"1.4.2","depth":2,"next":{"title":"语法知识","level":"1.4.3","depth":2,"path":"about_Python/语法知识.md","ref":"about_Python/语法知识.md","articles":[]},"previous":{"title":"学习1","level":"1.4.1","depth":2,"path":"about_Python/python_tutorial1.md","ref":"about_Python/python_tutorial1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["favicon","insert-logo","code","-lunr","-search","search-pro","-highlight","prism","back-to-top-button","mathjax-pro","flexible-alerts","auto-scroll-table","lightbox","tbfed-pagefooter","accordion","livereload"],"?plugins":"注释：常用的插件，网上可以找到下面各插件的用途","root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © all right reserved, powered by ... 2023","modify_label":"该文档修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"accordion":{},"auto-scroll-table":{},"code":{"copyButtons":true},"zymplayer":{"element":"body","width":"200px","mode":"random","show":"all","list":{"path":"/ubuk/assets/music/musicList.json","height":180,"expand":false},"position":{"pos":"fixed","right":"0px","bottom":"0px"}},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/ubuk.ico","bookmark":"assets/ubuk.ico","appleTouch":"assets/ubuk.png","appleTouchMore":{"152x152":"assets/ubuk.png"}},"lightbox":{"jquery":true,"options":{"resizeDuration":200,"sameUuid":true,"wrapAround":true},"sameUuid":false},"back-to-top-button":{},"mathjax-pro":{"forceSVG":false,"version":"2.7.7"},"flexible-alerts":{"style":"callout","note":{"label":"NOTE","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Danger","icon":"fa fa-ban","className":"danger"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"url":"/assets/ubuk.png","style":"background: none; max-height: 100px; min-height: 30px"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"优布克(your book)","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"about_Python/python_tutorial2.md","mtime":"2024-01-23T14:27:47.172Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-01-24T14:19:44.995Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"学习2","level":"1.4.2","depth":2,"next":{"title":"常见问题","level":"1.4.3","depth":2,"path":"about_Python/常见问题Updated.md","ref":"about_Python/常见问题Updated.md","articles":[]},"previous":{"title":"学习1","level":"1.4.1","depth":2,"path":"about_Python/python_tutorial1.md","ref":"about_Python/python_tutorial1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["favicon","insert-logo","code","-lunr","-search","search-pro","-highlight","prism","back-to-top-button","mathjax-pro","flexible-alerts","auto-scroll-table","lightbox","tbfed-pagefooter","accordion","livereload"],"?plugins":"注释：常用的插件，网上可以找到下面各插件的用途","root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © all right reserved, powered by ... 2023","modify_label":"该文档修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"]},"livereload":{},"search-pro":{},"accordion":{},"auto-scroll-table":{},"code":{"copyButtons":true},"zymplayer":{"element":"body","width":"200px","mode":"random","show":"all","list":{"path":"/ubuk/assets/music/musicList.json","height":180,"expand":false},"position":{"pos":"fixed","right":"0px","bottom":"0px"}},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"assets/ubuk.ico","bookmark":"assets/ubuk.ico","appleTouch":"assets/ubuk.png","appleTouchMore":{"152x152":"assets/ubuk.png"}},"lightbox":{"jquery":true,"options":{"resizeDuration":200,"sameUuid":true,"wrapAround":true},"sameUuid":false},"back-to-top-button":{},"mathjax-pro":{"forceSVG":false,"version":"2.7.7"},"flexible-alerts":{"style":"callout","note":{"label":"NOTE","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Danger","icon":"fa fa-ban","className":"danger"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"url":"/assets/ubuk.png","style":"background: none; max-height: 100px; min-height: 30px"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"优布克(your book)","language":"zh-hans","gitbook":"3.2.3"},"file":{"path":"about_Python/python_tutorial2.md","mtime":"2024-02-12T16:02:53.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-02-17T10:24:31.885Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

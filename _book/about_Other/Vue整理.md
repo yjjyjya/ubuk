@@ -1,4 +1,20 @@
-# *声明式渲染*
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨参考资料</span> 
+    </div>
+</div>
+
+https://cn.vuejs.org/tutorial/#step-1  
+
+---
+
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨基本语法</span> 
+    </div>
+</div>
+
+### ⭕ 声明式渲染
 
 也叫做 **响应式渲染**，能在改变时触发更新的状态被认为是响应式的  
 将视图与数据进行绑定，通过改变数据的状态来自动更新视图  
@@ -24,15 +40,18 @@ createApp({
   <p>Count is: {{ counter.count }}</p>
 </div>
 ```
-传递给 createApp() 的对象是 data 组件，响应式状态被保存在其中。data 组件返回了 message 属性  
+
+传递给 `createApp()` 的对象是 data 组件，响应式状态被保存在其中。data 组件返回了 message 属性  
 message 属性可以通过双括号法（**mustache语法**）在模板中使用，用于渲染动态文本  
 
-> 双括号中可以编写 js 代码、路径、标识符（给类、方法等起的名字）等  
+> [!NOTE|style:flat]
+> 双括号中可以编写 **js 代码、路径、标识符（给类、方法等起的名字）** 等  
 
+### ⭕ 属性 Attribute 绑定
 
-# *属性 Attribute 绑定*
+上面讲到的双括号法只能在文本中进行动态渲染  
+为了给 attribute 绑定一个动态值，需要使用 `v-bind` 指令  
 
-上面讲到的双括号法只能在文本中进行动态渲染，为了给 attribute 绑定一个动态值，需要使用 `v-bind` 指令  
 ``` html
 <script type="module">
 import { createApp } from 'vue'
@@ -50,12 +69,13 @@ createApp({
 或者简写
 <div :id="dynamicId"></div>
 ```
+
 上面给 id 赋予 dynamicId，并在 data 组件中返回 dynamicId 的值  
 
+### ⭕ 事件监听
 
-# *事件监听*
+使用 `v-on` 指令监听 DOM 事件  
 
-使用 v-on 指令监听 DOM 事件  
 ``` html
 <script type="module">
 import { createApp } from 'vue'
@@ -78,12 +98,13 @@ createApp({
 或者简写
 <button @click="increment">count is: {{ count }}</button>
 ```
+
 按钮 button 绑定了 methods 选项声明的 increment 函数，用于 count 的自增  
 
+### ⭕ 表单绑定
 
-# *表单绑定*
+同时使用 `v-bind` 和 `v-on` 来在表单的输入元素上创建 **双向绑定**  
 
-同时使用 v-bind 和 v-on 来在表单的输入元素上创建双向绑定  
 ``` html
 <script type="module">
 import { createApp } from 'vue'
@@ -107,10 +128,11 @@ createApp({
   <p>{{ text }}</p>
 </div>
 ```
-e.target.value 这个写法？？？  
+
+> e.target.value 这个写法？？？  
 
 
-# *条件渲染*
+### ⭕ 条件渲染
 
 ``` html
 <script type="module">
@@ -136,13 +158,15 @@ createApp({
   <h1 v-else>Oh no</h1>
 </div>
 ```
-上述第一个 `<h1>` 标签只会在 awesome 的值为真值 (Truthy) 时渲染；反之渲染第二个 `<h1>` 标签的内容，而控制 awesome 的值切换的就是 toggle 这个函数  
-当然也有 v-else-if 的写法  
 
+上述第一个 `<h1>` 标签只会在 awesome 的值为真时进行渲染  
+反之渲染第二个 `<h1>` 标签的内容，而控制 awesome 的值切换的就是 toggle 这个函数  
+当然也有 `v-else-if` 的写法  
 
-# *列表渲染*
+### ⭕ 列表渲染
 
-对于一个列表要进行渲染，可以使用循环 v-for  
+对于一个列表要进行渲染，可以使用循环 `v-for`  
+
 ``` html
 <script type="module">
 import { createApp } from 'vue'
@@ -187,12 +211,12 @@ createApp({
   </ul>
 </div>
 ```
-v-for 中的 todo 是一个局部变量，表示当前正在迭代的数组元素  
+
+`v-for` 中的 todo 是一个局部变量，表示当前正在迭代的数组元素  
 key 用于绑定每一个 todo 的唯一 id  
 注意列表的 push 操作和 filter 操作  
 
-
-# *计算属性*
+### ⭕ 计算属性
 
 ``` html
 <script type="module">
@@ -245,16 +269,16 @@ createApp({
     </li>
   </ul>
   <button @click="hideCompleted = !hideCompleted">
-    {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+    ｛｛ hideCompleted ? 'Show all' : 'Hide completed' ｝｝
   </button>
 </div>
 ```
 
-
-# *生命周期和模板引用*
+### ⭕ 生命周期和模板引用
 
 生命周期是指 Vue 实例从创建到销毁的过程，它包含了 8 个阶段  
 要手动操作 DOM，可以通过 ref attribute 来实现模板引用  
+
 ``` html
 <script type="module">
 import { createApp } from 'vue'
@@ -271,10 +295,11 @@ createApp({
 </div>
 ```
 
+### ⭕ 侦听器
 
-# *侦听器*
+侦听器是一种可以监听数据变化的工具，它可以在数据发生变化时执行一些特定的操作  
+例如当一个数字改变时将其输出到控制台  
 
-侦听器是一种可以监听数据变化的工具，它可以在数据发生变化时执行一些特定的操作，例如当一个数字改变时将其输出到控制台  
 ``` html
 <script type="module">
 import { createApp } from 'vue'
@@ -313,10 +338,11 @@ createApp({
   <pre v-else>{{ todoData }}</pre>
 </div>
 ```
-使用 watch 选项来侦听 count 属性的变化。当 count 改变时，侦听回调将被调用，并且接收新值作为参数  
 
+使用 watch 选项来侦听 count 属性的变化  
+当 count 改变时，侦听回调将被调用，并且接收新值作为参数  
 
-# *组件*
+### ⭕ 组件
 
 ``` html
 <script type="module">
@@ -341,14 +367,15 @@ export default {
   `
 }
 ```
+
 使用 components 选项注册组件 ChildComp  
 注意使用 **kebab-case** 的名字来引用  
 
-
-# *子组件接收数据*
+### ⭕ 子组件接收数据
 
 在子组件中通过 props 从父组件接受动态数据  
-在父组件中可以通过 v-bind 传入参数，以渲染子组件的内容  
+在父组件中可以通过 `v-bind` 传入参数，以渲染子组件的内容  
+
 ``` html
 <script type="module">
 import { createApp } from 'vue'
@@ -370,19 +397,19 @@ createApp({
   <child-comp></child-comp>
 </div>
 ```
+
 ``` javascript
 export default {
   props: {
     msg: String
   },
   template: `
-  <h2>{{ msg || 'No props passed yet' }}</h2>
+  <h2>｛｛ msg || 'No props passed yet' ｝｝</h2>
   `
 }
 ```
 
-
-# *子组件向父组件触发事件*
+### ⭕ 子组件向父组件触发事件
 
 ``` html
 <script type="module">
@@ -406,6 +433,7 @@ createApp({
   <p>{{ childMsg }}</p>
 </div>
 ```
+
 ``` javascript
 export default {
   emits: ['response'],
@@ -419,13 +447,14 @@ export default {
   `
 }
 ```
-父组件可以使用 v-on 监听子组件触发的事件  
-这里的处理函数接收了子组件触发事件时的额外参数并将它赋值给了本地状态  
 
+父组件可以使用 `v-on` 监听子组件触发的事件  
+这里的处理函数接收了子组件触发事件时的额外参数，并将它赋值给了本地状态  
 
-# *插槽*
+### ⭕ 插槽
 
 父组件还可以通过插槽 (slot) 将模板片段传递给子组件  
+
 ``` html
 <script type="module">
 import { createApp } from 'vue'
@@ -447,6 +476,7 @@ createApp({
   <child-comp>Message: {{ msg }}</child-comp>
 </div>
 ```
+
 ``` javascript
 export default {
   template: `
@@ -458,6 +488,60 @@ export default {
 ```
 
 
-# *参考资料*
 
-https://cn.vuejs.org/tutorial/#step-1  
+
+<style>
+    .note {
+        background-color: #f9f9f9; 
+        border: 1px solid #ddd; 
+        padding: 10px; 
+        border-radius: 10px; 
+        display: inline-block; 
+        font-weight: bold;
+        margin: 10px 0px;
+    }
+    .note:hover {
+        animation: gradient-in 0.5s forwards;
+    }
+    .note:not(:hover) {
+        animation: gradient-out 0.5s forwards;
+    }
+    @keyframes gradient-in {
+        0% {
+            background-color: #f9f9f9;
+        }
+        20% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #e1e1e1;
+        }
+    }
+    @keyframes gradient-out {
+        0% {
+            background-color: #e1e1e1;
+        }
+        80% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #f9f9f9;
+        }
+    }
+    .title1 { 
+        font-size: 24px; 
+        /* color: #333;  */
+    }
+    .title2 { 
+        font-size: 20px; 
+        /* color: #555;  */
+    }
+    .title3 { 
+        font-size: 16px; 
+        /* color: #777;  */
+    }
+    /* .note:hover [class^="title"]{
+        font-size: 30px;
+        opacity: 0.6;
+    } */
+</style>

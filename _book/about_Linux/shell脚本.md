@@ -9,22 +9,22 @@ shell 脚本是解释型语言（C 语言是编译型语言），是 shell 命�
 1.1 主要步骤
 
 （1）建立 shell 文件
-``` shell
+```
 vi filename.sh
 ```
 输入：date
 
 （2）赋予 shell 文件执行权限
-``` shell
+```
 chmod 740 filename.sh
 ```
 或者
-``` shell
+```
 chmod u+x filename.sh
 ```
 
 （3）执行 shell 文件
-``` shell
+```
 ./filename.sh
 ```
 
@@ -32,17 +32,17 @@ chmod u+x filename.sh
 
 （1）用户自定义变量  
 支持创建变量存储数据，但是不支持数据类型，任何赋给变量的值都是字符串
-``` shell
+```
 COUNT=1
 echo ${COUNT}
 ```
 设置只读变量：
-``` shell
+```
 myUrl="https://www.google.com"
 readonly myUrl
 ```
 删除变量用：
-``` shell
+```
 unset COUNT
 ```
 
@@ -58,7 +58,7 @@ unset COUNT
 - 数组
 
 只支持一维数组，但是各个元素的类型可以不一致，可以使用非连续的下标，且没有范围限制
-``` shell
+```
 array_name=(value0 value1 value2 value3)
 echo ${array_name[0]}    #获取第一个元素
 echo ${array_name[@]}    #获取所有元素
@@ -97,7 +97,7 @@ echo "第二个参数为：$2";
 echo "第三个参数为：$3";
 ```
 
-``` shell
+```
 $ chmod +x test.sh 
 $ ./test.sh 1 2 3
 Shell 传递参数实例！

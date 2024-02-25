@@ -1,13 +1,29 @@
-## 一、环境准备
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨参考资料</span> 
+    </div>
+</div>
 
-> ### 1.1 环境
+https://blog.csdn.net/qq_41037945/article/details/124286616  
+crudini工具，https://github.com/pixelb/crudini  
 
-`sudo passwd root`
-`sudo ufw disable`
+---
 
-> ### 1.2 换源
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨环境准备</span> 
+    </div>
+</div>
+
+### ⭕ 1.1 环境
+
+`sudo passwd root`  
+`sudo ufw disable`  
+
+### ⭕ 1.2 换源
 
 `sudo vi /etc/apt/sources.list`
+
 ```
 deb http://mirrors.tencentyun.com/ubuntu/ focal main restricted universe multiverse
 deb http://mirrors.tencentyun.com/ubuntu/ focal-security main restricted universe multiverse
@@ -20,16 +36,18 @@ deb-src http://mirrors.tencentyun.com/ubuntu/ focal-updates main restricted univ
 # deb-src http://mirrors.tencentyun.com/ubuntu/ focal-proposed main restricted universe multiverse
 # deb-src http://mirrors.tencentyun.com/ubuntu/ focal-backports main restricted universe multiverse
 ```
-`sudo apt update`
-`sudo apt upgrade`
 
-> ### 1.3 网络配置
+`sudo apt update`  
+`sudo apt upgrade`  
 
-`sudo vi /etc/sysctl.conf`
-取消注释下面这行
-`net.ipv4.ip_forward=1`
-`sudo sysctl -p`
-`sudo vi /etc/network/interfaces`
+### ⭕ 1.3 网络配置
+
+`sudo vi /etc/sysctl.conf`  
+取消注释 `net.ipv4.ip_forward=1`  
+
+`sudo sysctl -p`  
+`sudo vi /etc/network/interfaces`  
+
 ```
 auto lo
 iface lo inet loopback
@@ -42,22 +60,24 @@ netmask 255.255.255.0
 broadcast 10.0.24.255
 gateway 10.0.24.1
 ```
-试试是否可以 ping 通百度 `ping baidu.com`
 
-> ### 1.4 修改主机名和IP映射
+试试是否可以 ping 通百度 `ping baidu.com`  
 
-注意是用内网映射
-`sudo vi /etc/hostname` 改成 controller，意思即该主机作为控制节点
-`sudo vi /etc/hosts` 注释掉 127.0.1.1 那一行
-在 `127.0.0.1 localhost` 后面加上 controller
-然后另起一行添加 `对应的IP地址 controller`
-再重启 `reboot`
+### ⭕ 1.4 修改主机名和IP映射
 
-> ### 1.5 设置时间服务
+注意是用内网映射  
+`sudo vi /etc/hostname` 改成 controller，意思即该主机作为控制节点  
+`sudo vi /etc/hosts` 注释掉 127.0.1.1 那一行  
+在 `127.0.0.1 localhost` 后面加上 controller  
+然后另起一行添加 `对应的IP地址 controller`  
+再重启 `reboot`  
 
-`sudo apt install chrony`
-`sudo vi /etc/chrony/chrony.conf`
-修改为如下内容：
+### ⭕ 1.5 设置时间服务
+
+`sudo apt install chrony`  
+`sudo vi /etc/chrony/chrony.conf`  
+修改为如下内容  
+
 ```
 #注意注释掉几个pool，添加server、allow、local
 
@@ -113,28 +133,29 @@ makestep 1 3
 #这里是新添加的
 local stratum 10
 ```
-重启 chrony 服务 `sudo service chrony restart`
-检查是否设置成功
-执行 `chronyc sources` 如果是 ^* 说明配置好了，如果是 ? 说明没有连接服务器
-或者执行 `timedatectl` System clock synchronized 会变成 yes，否则是 no
+重启 chrony 服务 `sudo service chrony restart`  
+检查是否设置成功  
+执行 `chronyc sources` 如果是 ^* 说明配置好了，如果是 ? 说明没有连接服务器  
+或者执行 `timedatectl` System clock synchronized 会变成 yes，否则是 no  
 
-设置时间同步：
+设置时间同步  
+
 ```
 sudo dpkg-reconfigure tzdata   #选择亚洲上海
 sudo apt-get install ntpdate
 sudo ntpdate cn.pool.ntp.org
 ```
 
-> ### 1.6 下载OpenStack软件包
+### ⭕ 1.6 下载OpenStack软件包
 
-`sudo add-apt-repository cloud-archive:yoga`
-安装客户端
-`sudo apt install python3-openstackclient python3-pip`
-1. 数据库
-`sudo apt install python3-pymysql`
-`sudo apt install mariadb-server`
-创建并写入文件 `sudo vi /etc/mysql/mariadb.conf.d/99-openstack.cnf`
-内容如下
+`sudo add-apt-repository cloud-archive:yoga`  
+安装客户端 `sudo apt install python3-openstackclient python3-pip`  
+
+1、数据库的安装  
+`sudo apt install python3-pymysql`  
+`sudo apt install mariadb-server`  
+创建并写入文件 `sudo vi /etc/mysql/mariadb.conf.d/99-openstack.cnf`，内容如下  
+
 ```
 [mysqld]
 bind-address = 10.0.24.13
@@ -144,20 +165,25 @@ max_connections = 4096
 collation-server = utf8_general_ci
 character-set-server = utf8
 ```
-重启数据库 `sudo service mysql restart`
-切换到 root，随后配置一下密码 `mysql_secure_installation`
-2. 消息队列
-`sudo apt install rabbitmq-server`
-创建 openstack 用户 `sudo rabbitmqctl add_user openstack admin` 用户名为 openstack ，密码为 admin
-赋予权限 `sudo rabbitmqctl set_permissions openstack ".*" ".*" ".*"`
-文件目录在 /usr/lib/rabbitmq/lib/rabbitmq_server-3.8.2/sbin
-3. 缓存
-安装 `sudo apt install memcached python3-memcache -y`
-修改配置文件 `sudo vi /etc/memcached.conf` 将 127.0.0.1 替换为 controller 对应的 IP 地址
-重启服务 `sudo service memcached restart`
-4. etcd
-`sudo apt install etcd -y`
-修改配置文件 `sudo vi /etc/default/etcd` 内容如下，注意一些需要换成 IP 地址的地方
+
+重启数据库 `sudo service mysql restart`  
+切换到 root，随后配置一下密码 `mysql_secure_installation`  
+
+2、消息队列  
+`sudo apt install rabbitmq-server`  
+创建 openstack 用户 `sudo rabbitmqctl add_user openstack admin` 用户名为 openstack ，密码为 admin  
+赋予权限 `sudo rabbitmqctl set_permissions openstack ".*" ".*" ".*"`  
+文件目录在 /usr/lib/rabbitmq/lib/rabbitmq_server-3.8.2/sbin  
+
+3、缓存  
+安装 `sudo apt install memcached python3-memcache -y`  
+修改配置文件 `sudo vi /etc/memcached.conf` 将 127.0.0.1 替换为 controller 对应的 IP 地址  
+重启服务 `sudo service memcached restart`  
+
+4、etcd  
+`sudo apt install etcd -y`  
+修改配置文件 `sudo vi /etc/default/etcd` 内容如下，注意一些需要换成 IP 地址的地方  
+
 ```
 ETCD_NAME="controller"
 ETCD_DATA_DIR="/var/lib/etcd"
@@ -169,32 +195,41 @@ ETCD_ADVERTISE_CLIENT_URLS="http://10.0.24.13:2379"
 ETCD_LISTEN_PEER_URLS="http://0.0.0.0:2380"
 ETCD_LISTEN_CLIENT_URLS="http://10.0.24.13:2379"
 ```
-启动 etcd 服务
-`systemctl enable etcd`
-`systemctl restart etcd`
 
-***
+启动 etcd 服务  
+`systemctl enable etcd`  
+`systemctl restart etcd`  
 
-## 二、OpenStack
+---
 
-> ### 2.1 Keystone
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨OpenStack 的安装</span> 
+    </div>
+</div>
 
-进入root
-进入 MySQL `mysql -uroot -p` 输入密码
-或者 `mysql` 不用输入密码
+### ⭕ 2.1 Keystone
+
+进入root  
+进入 MySQL `mysql -uroot -p` 输入密码  
+或者 `mysql` 不用输入密码  
+
 ```
 CREATE DATABASE keystone;
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'admin';
 GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'admin';
 ```
-注意这里的 IDENTIFIED BY 后面的 admin，意思是设置 MySQL 中 keystone 用户的密码
-安装 keystone 组件 `sudo apt install keystone`
-安装一个小工具，方便修改配置文件
-`sudo apt install git`
-`sduo git config --global --unset http.https://github.com.proxy`
-`sudo git clone https://github.com/pixelb/crudini`
-`sudo apt install crudini`
-修改配置文件 `sudo vi /etc/keystone/keystone.conf`
+
+注意这里的 IDENTIFIED BY 后面的 admin，意思是设置 MySQL 中 keystone 用户的密码  
+安装 keystone 组件 `sudo apt install keystone`  
+
+安装一个小工具，方便修改配置文件  
+`sudo apt install git`  
+`sduo git config --global --unset http.https://github.com.proxy`  
+`sudo git clone https://github.com/pixelb/crudini`  
+`sudo apt install crudini`  
+修改配置文件 `sudo vi /etc/keystone/keystone.conf`  
+
 ```
 [database]
 "mysql+pymysql://keystone:上面设置的密码@controller/keystone"
@@ -202,14 +237,19 @@ GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'admin';
 [token]
 provider fernet
 ```
-也可以用 crudini：
-`crudini --set /etc/keystone/keystone.conf database connection "mysql+pymysql://keystone:admin@controller/keystone"`
-`crudini --set /etc/keystone/keystone.conf token provider fernet`
-填充数据库 `su -s /bin/sh -c "keystone-manage db_sync" keystone`
-初始化令牌仓库
-`keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone`
-`keystone-manage credential_setup --keystone-user keystone --keystone-group keystone`
+
+也可以用 crudini  
+`crudini --set /etc/keystone/keystone.conf database connection "mysql+pymysql://keystone:admin@controller/keystone"`  
+`crudini --set /etc/keystone/keystone.conf token provider fernet`  
+
+填充数据库 `su -s /bin/sh -c "keystone-manage db_sync" keystone`  
+
+初始化令牌仓库  
+`keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone`  
+`keystone-manage credential_setup --keystone-user keystone --keystone-group keystone`  
+
 创建管理员用户
+
 ```
 keystone-manage bootstrap --bootstrap-password admin \
   --bootstrap-admin-url http://controller:5000/v3/ \
@@ -217,10 +257,12 @@ keystone-manage bootstrap --bootstrap-password admin \
   --bootstrap-public-url http://controller:5000/v3/ \
   --bootstrap-region-id RegionOne
 ```
-`sudo vi /etc/apache2/apache2.conf`
-往文件中添加 `ServerName controller`
-重启apache，`sudo service apache2 restart`
-注意处在普通用户下，创建一个文件 `vi adminrc_keystone`，输入内容如下
+
+`sudo vi /etc/apache2/apache2.conf`  
+往文件中添加 `ServerName controller`  
+重启apache，`sudo service apache2 restart`  
+注意处在普通用户下，创建一个文件 `vi adminrc_keystone`，输入内容如下  
+
 ```
 export OS_USERNAME=admin
 export OS_PASSWORD=admin
@@ -230,8 +272,10 @@ export OS_PROJECT_DOMAIN_NAME=Default
 export OS_AUTH_URL=http://controller:5000/v3
 export OS_IDENTITY_API_VERSION=3
 ```
-`source adminrc_keystone`
-分别创建相应的domain、projects等：
+
+`source adminrc_keystone`  
+分别创建相应的domain、projects等  
+
 ```
 openstack project create --domain default --description "Service Project" service
 openstack project create --domain default --description "Demo Project" demo
@@ -239,16 +283,19 @@ openstack user create --domain default --password demo demo
 openstack role create role_demo
 openstack role add --project demo --user demo role_demo
 ```
-最后验证一下 `openstack token issue`
 
-> ### 2.2 Glance
+最后验证一下 `openstack token issue`  
+
+### ⭕ 2.2 Glance
 
 ```
 CREATE DATABASE glance;
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'admin';
 GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'admin';
 ```
+
 `apt install glance -y`
+
 ```
 openstack user create --domain default --password-prompt glance
 或者
@@ -260,7 +307,9 @@ openstack endpoint create --region RegionOne image public http://controller:9292
 openstack endpoint create --region RegionOne image internal http://controller:9292
 openstack endpoint create --region RegionOne image admin http://controller:9292
 ```
+
 `sudo vi /etc/glance/glance-api.conf`
+
 ```
 [database] 1746
 # ...
@@ -298,26 +347,30 @@ region_name = RegionOne
 # ...
 flavor = keystone
 ```
-处于普通用户下，授予glance用户权限 `openstack role add --user glance --user-domain Default --system all reader`
-填充数据库 `su -s /bin/sh -c "glance-manage db_sync" glance`
-重启服务 `service glance-api restart`
-下载镜像 `wget http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img`
-上传 glance
+
+处于普通用户下，授予glance用户权限 `openstack role add --user glance --user-domain Default --system all reader`  
+填充数据库 `su -s /bin/sh -c "glance-manage db_sync" glance`  
+重启服务 `service glance-api restart`  
+下载镜像 `wget http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img`  
+上传 glance  
+
 ```
 glance image-create --name "cirros" \
   --file cirros-0.4.0-x86_64-disk.img \
   --disk-format qcow2 --container-format bare \
   --visibility=public
 ```
-可以使用 `openstack image list` 或者 `glance image-list` 查看镜像
 
-> ### 2.3 Placement
+可以使用 `openstack image list` 或者 `glance image-list` 查看镜像  
+
+### ⭕ 2.3 Placement
 
 ```
 CREATE DATABASE placement;
 GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'localhost' IDENTIFIED BY 'admin';
 GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'%' IDENTIFIED BY 'admin';
 ```
+
 ```
 openstack user create --domain default --password admin placement
 openstack role add --project service --user placement admin
@@ -326,7 +379,9 @@ openstack endpoint create --region RegionOne placement public http://controller:
 openstack endpoint create --region RegionOne placement internal http://controller:8778
 openstack endpoint create --region RegionOne placement admin http://controller:8778
 ```
+
 `apt install placement-api`
+
 ```
 crudini --set /etc/placement/placement.conf placement_database connection "mysql+pymysql://placement:admin@controller/placement"
 crudini --set /etc/placement/placement.conf api auth_strategy "keystone"
@@ -347,12 +402,14 @@ echo 'succeed to fullfill placement database'
 service apache2 restart
 echo 'succeed restart apache2'
 ```
-验证是否配置好 `placement-status upgrade check`
-`pip3 install osc-placement`
 
-> ### 2.4 Nova
+验证是否配置好 `placement-status upgrade check`  
+`pip3 install osc-placement`  
 
-因为是allinone的模式，所以先执行控制节点，然后再执行计算节点
+### ⭕ 2.4 Nova
+
+因为是allinone的模式，所以先执行控制节点，然后再执行计算节点  
+
 ```
 CREATE DATABASE nova_api;
 CREATE DATABASE nova;
@@ -367,6 +424,7 @@ GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'admin';
 GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'localhost' IDENTIFIED BY 'admin';
 GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' IDENTIFIED BY 'admin';
 ```
+
 ```
 openstack user create --domain default --password admin nova
 openstack role add --project service --user nova admin
@@ -376,9 +434,11 @@ openstack endpoint create --region RegionOne compute public http://controller:87
 openstack endpoint create --region RegionOne compute internal http://controller:8774/v2.1
 openstack endpoint create --region RegionOne compute admin http://controller:8774/v2.1
 ```
-控制节点
-`apt install nova-api nova-conductor nova-novncproxy nova-scheduler`
-`vi /etc/nova/nova.conf`
+
+控制节点  
+`apt install nova-api nova-conductor nova-novncproxy nova-scheduler`  
+`vi /etc/nova/nova.conf`  
+
 ```
 [api_database] 1090
 connection = mysql+pymysql://nova:admin@10.0.24.13/nova_api
@@ -423,6 +483,7 @@ auth_url = http://10.0.24.13:5000/v3
 username = placement
 password = admin
 ```
+
 ```
 crudini --set /etc/nova/nova.conf api_database connection "mysql+pymysql://nova:admin@controller/nova_api"
 crudini --set /etc/nova/nova.conf database connection "mysql+pymysql://nova:admin@controller/nova"
@@ -474,9 +535,11 @@ service nova-scheduler restart
 service nova-conductor restart
 service nova-novncproxy restart
 ```
-下面是计算节点
-`apt install nova-compute`
-`vi /etc/nova/nova.conf`
+
+下面是计算节点  
+`apt install nova-compute`  
+`vi /etc/nova/nova.conf`  
+
 ```
 [DEFAULT]
 transport_url = rabbit://openstack:admin@10.0.24.13
@@ -520,6 +583,7 @@ auth_url = http://10.0.24.13:5000/v3
 username = placement
 password = admin
 ```
+
 ```
 crudini --set /etc/nova/nova.conf DEFAULT transport_url "rabbit://openstack:admin@controller"
 crudini --set /etc/nova/nova.conf api auth_strategy keystone
@@ -563,14 +627,16 @@ service nova-compute restart
 echo 'succeed to restart nova-compute'
 ```
 
-> ### 2.5 Neutron
+### ⭕ 2.5 Neutron
 
 先是控制节点
+
 ```
 CREATE DATABASE neutron;
 GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY 'admin';
 GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'admin';
 ```
+
 ```
 openstack user create --domain default --password admin neutron
 openstack role add --project service --user neutron admin
@@ -579,8 +645,10 @@ openstack endpoint create --region RegionOne network public http://controller:96
 openstack endpoint create --region RegionOne network internal http://controller:9696
 openstack endpoint create --region RegionOne network admin http://controller:9696
 ```
-选择创建自服务服务网络
-`apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent`
+
+选择创建自服务服务网络  
+`apt install neutron-server neutron-plugin-ml2 neutron-linuxbridge-agent neutron-l3-agent neutron-dhcp-agent neutron-metadata-agent`  
+
 ```
 crudini --set /etc/neutron/neutron.conf database connection "mysql+pymysql://neutron:admin@controller/neutron"
 crudini --set /etc/neutron/neutron.conf DEFAULT core_plugin ml2
@@ -671,8 +739,10 @@ service neutron-metadata-agent restart
 service neutron-l3-agent restart
 echo 'succeed to restart services'
 ```
-计算节点
-`apt install neutron-linuxbridge-agent`
+
+计算节点  
+`apt install neutron-linuxbridge-agent`  
+
 ```
 crudini --set /etc/neutron/neutron.conf DEFAULT transport_url "rabbit://openstack:admin@controller"
 crudini --set /etc/neutron/neutron.conf DEFAULT auth_strategy keystone
@@ -715,13 +785,15 @@ service nova-compute restart
 service neutron-linuxbridge-agent restart
 echo 'succeed to restart services'
 ```
-验证 `openstack extension list --network`
-`openstack network agent list`
 
-> ### 2.6 Horizon
+验证 `openstack extension list --network`  
+`openstack network agent list`  
 
-`apt install openstack-dashboard`
-`vi /etc/openstack-dashboard/local_settings.py`
+### ⭕ 2.6 Horizon
+
+`apt install openstack-dashboard`  
+`vi /etc/openstack-dashboard/local_settings.py`  
+
 ```
 126
 OPENSTACK_HOST = "controller"
@@ -757,67 +829,72 @@ OPENSTACK_NEUTRON_NETWORK = {
 TIME_ZONE = "Asia/Shanghai"
 ```
 
-检验安装结果 `nova-status upgrade check`
-使用可视化界面，浏览器访问 `http://IP地址/horizon`
-账号密码即 adminrc_keystone 里面的内容
+检验安装结果 `nova-status upgrade check`  
+使用可视化界面，浏览器访问 `http://IP地址/horizon`  
+账号密码即 adminrc_keystone 里面的内容  
 
-***
+---
 
-## 三、遇到的一些问题
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨遇到的一些问题</span> 
+    </div>
+</div>
 
-> ### 3.1 [ifconfig 命令无网络接口 ens33](https://www.cnblogs.com/PatrickLiu/p/8443019.html#:~:text=%E6%88%91%E5%B0%B1%E4%BD%BF%E7%94%A8%20ifconfig%20%E5%91%BD%E4%BB%A4%E5%9C%A8Linux,%E7%B3%BB%E7%BB%9F%E4%B8%8B%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%A7%E8%A1%8C%E6%9D%A5%E6%A3%80%E6%9F%A5%E4%B8%80%E4%B8%8BIP%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%EF%BC%8Cifconfig%20%E5%91%BD%E4%BB%A4%E4%B8%8B%E5%8F%91%E7%8E%B0%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3ens33%E4%B8%8D%E8%A7%81%E4%BA%86%EF%BC%8C%E5%8F%AA%E6%9C%89%E7%8E%AF%E5%9B%9E%E5%8F%A3%EF%BC%8C%E6%95%88%E6%9E%9C%E5%A6%82%E4%B8%8B%E6%88%AA%E5%9B%BE%EF%BC%9A%20%E4%BB%A5%E5%89%8D%E7%9A%84IP%E5%9C%B0%E5%9D%80%E6%B2%A1%E6%9C%89%E4%BA%86%EF%BC%8C%E5%8F%AA%E5%89%A9%E4%B8%8B%E8%BF%99%E4%B8%AA%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80%E4%BA%86127.0.0.1%EF%BC%8C%E5%8E%9F%E6%9D%A5%E9%97%AE%E9%A2%98%E5%87%BA%E7%8E%B0%E5%9C%A8%E8%BF%99%E9%87%8C%E3%80%82)
+### ⭕ 3.1 [ifconfig 命令无网络接口 ens33](https://www.cnblogs.com/PatrickLiu/p/8443019.html)
 
-不是接口不存在，只是接口没有UP。需要先启用网络，启用网络时会调用/sbin/dhclient，于是执行 `sudo /sbin/dhclient` 即可
+不是接口不存在，只是接口没有UP  
+需要先启用网络，启用网络时会调用/sbin/dhclient，于是执行 `sudo /sbin/dhclient` 即可  
 
-> ### 3.2 [log文件中报错 Failed to create resource provider controller](https://www.cnblogs.com/jimmyyang/p/13143453.html)
+### ⭕ 3.2 [log文件中报错 Failed to create resource provider controller](https://www.cnblogs.com/jimmyyang/p/13143453.html)
 
-`mysql`
-```
+``` sql
 SHOW databases;
 USE nova-api;
 SELECT * FROM resource_provider;
 ```
-数据库中的表resource_provider要是没有任何数据，应该是没有写入成功，所以可能是placement的相关权限出了问题
-返回查看安装步骤中，配置文件是否出现错误
 
-> ### 3.3 [rabbitmq问题](https://blog.csdn.net/Qevery678/article/details/102599863)
+数据库中的表resource_provider要是没有任何数据，应该是没有写入成功，所以可能是placement的相关权限出了问题  
+返回查看安装步骤中，配置文件是否出现错误  
 
-https://blog.csdn.net/qq_41887560/article/details/106194494
-注意 /etc/hosts 文件的配置
-127.0.0.1 那一行后面需要加上 hostname
-127.0.1.1 那一行需要注释掉
-重启服务 `sudo systemctl restart rabbitmq.server`
-查看状态 `sudo systemctl status rabbitmq.server`
+### ⭕ 3.3 [rabbitmq问题](https://blog.csdn.net/Qevery678/article/details/102599863)
 
+https://blog.csdn.net/qq_41887560/article/details/106194494  
 
-> ### 3.4 [dashboard 登陆认证失败，显示 invalid credentials](https://blog.csdn.net/weixin_43863487/article/details/109604903)
+注意 /etc/hosts 文件的配置  
+127.0.0.1 那一行后面需要加上 hostname  
+127.0.1.1 那一行需要注释掉  
+重启服务 `sudo systemctl restart rabbitmq.server`  
+查看状态 `sudo systemctl status rabbitmq.server`  
 
-`vi /etc/openstack-dashboard/local_settings.py`
-修改端口号
+### ⭕ 3.4 [dashboard 登陆认证失败，显示 invalid credentials](https://blog.csdn.net/weixin_43863487/article/details/109604903)
 
-> ### 3.5 如何创建flavor 
+`vi /etc/openstack-dashboard/local_settings.py` 修改端口号  
 
-`nova flavor-list`
-`nova flavor-create --is-public true boshen_ram_1024_disk_1_vcpus_1 boshen_ram_1024_disk_1_vcpus_1 1024 1 1`
-`nova flavor-delete {name}`
+### ⭕ 3.5 如何创建flavor 
 
-> ### 3.6 openstack用户管理
+`nova flavor-list`  
+`nova flavor-create --is-public true boshen_ram_1024_disk_1_vcpus_1 boshen_ram_1024_disk_1_vcpus_1 1024 1 1`  
+`nova flavor-delete {name}`  
 
-`openstack user list`
-`openstack user delete glance`
+### ⭕ 3.6 openstack用户管理
 
-`openstack service list`
-`openstack service delete <service ID>`
+`openstack user list`  
+`openstack user delete glance`  
 
-> ### 3.7 [运行 VNC 灰屏问题](https://blog.csdn.net/weixin_56017984/article/details/120519449?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-4-120519449-blog-109578971.pc_relevant_3mothn_strategy_recovery&spm=1001.2101.3001.4242.3&utm_relevant_index=7)
+`openstack service list`  
+`openstack service delete <service ID>`  
 
-配置防火墙端口
-`sudo -i`
-`sudo apt update`
-`sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop`
-`sudo apt-get install tightvncserver`
-`sudo vncserver`
-`sudo vi ~/.vnc/xstartup`
+### ⭕ 3.7 [运行 VNC 灰屏问题](https://blog.csdn.net/weixin_56017984/article/details/120519449)
+
+配置防火墙端口  
+`sudo -i`  
+`sudo apt update`  
+`sudo apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal ubuntu-desktop`  
+`sudo apt-get install tightvncserver`  
+`sudo vncserver`  
+`sudo vi ~/.vnc/xstartup`  
+
 ```
 #!/bin/bash
 export $(dbus-launch)  
@@ -841,22 +918,66 @@ gnome-session &
 VNCSERVERS="2:root"
 VNCSERVERARGS[1]="-GEOMETRY 800×600"
 ```
-`sudo vncserver -kill :1 #杀掉原桌面进程，输入命令（其中的:1是桌面号）`
-`sudo vncserver -geometry 1920x1080 :1 #生成新的会话`
-下载 VNC viewer，https://www.realvnc.com/en/connect/download/viewer/
 
-***
-
-## 参考文档
-
-1. https://blog.csdn.net/qq_41037945/article/details/124286616
-2. crudini工具，https://github.com/pixelb/crudini
+杀掉原桌面进程，输入命令（其中的:1是桌面号） `sudo vncserver -kill :1`  
+生成新的会话 `sudo vncserver -geometry 1920x1080 :1`  
+下载 VNC viewer，https://www.realvnc.com/en/connect/download/viewer/  
 
 
 
 
-
-
-
-
-
+<style>
+    .note {
+        background-color: #f9f9f9; 
+        border: 1px solid #ddd; 
+        padding: 10px; 
+        border-radius: 10px; 
+        display: inline-block; 
+        font-weight: bold;
+        margin: 10px 0px;
+    }
+    .note:hover {
+        animation: gradient-in 0.5s forwards;
+    }
+    .note:not(:hover) {
+        animation: gradient-out 0.5s forwards;
+    }
+    @keyframes gradient-in {
+        0% {
+            background-color: #f9f9f9;
+        }
+        20% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #e1e1e1;
+        }
+    }
+    @keyframes gradient-out {
+        0% {
+            background-color: #e1e1e1;
+        }
+        80% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #f9f9f9;
+        }
+    }
+    .title1 { 
+        font-size: 24px; 
+        /* color: #333;  */
+    }
+    .title2 { 
+        font-size: 20px; 
+        /* color: #555;  */
+    }
+    .title3 { 
+        font-size: 16px; 
+        /* color: #777;  */
+    }
+    /* .note:hover [class^="title"]{
+        font-size: 30px;
+        opacity: 0.6;
+    } */
+</style>

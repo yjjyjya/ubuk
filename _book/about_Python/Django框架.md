@@ -1,31 +1,48 @@
-### django 实现个人博客
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨参考资料</span> 
+    </div>
+</div>
+
+https://zhuanlan.zhihu.com/p/98788776  
+https://www.cnblogs.com/RioTian/p/13828548.html  
 
 ---
 
-### 设计一个应用的大致流程
+<div class="container" style="text-align: center;">
+    <div class="note">
+        <span class="title1">✨Django 实现个人博客</span> 
+    </div>
+</div>
+
+### ⭕ 设计一个应用的大致流程
 
 <div class="img_container" style="margin: 0px auto 20px auto; width: 40%; height: auto;">
-    <img src="./pic/流程.png" style="display: block; box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);">
+    <img 
+    src="./pic/流程.png" 
+    style="display: block; box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);" 
+    alt="应用开发流程">
 <!-- 前两个参数 h-shadow和v-shadow表示阴影在水平和垂直方向上产生的偏移，模拟光照的方向 -->
 <!-- 第三个参数 blur设置为10px，表示阴影的模糊半径为10px，使阴影产生一定的模糊效果。 -->
 <!-- color设置为rgba(0, 0, 0, 0.5)，表示阴影的颜色为黑色（RGB为0, 0, 0），透明度为0.5，即半透明的黑色阴影。 -->
 </div>
 
-
-### 数据库设计
+### ⭕ 数据库设计
 
 <div class="img_container" style="margin: 0px auto 20px auto; width: 90%; height: auto;">
-    <img src="./pic/apps设计.png" style="display: block; box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);">
+    <img 
+    src="./pic/apps设计.png" 
+    style="display: block; box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);" 
+    alt="数据库设计">
 </div>
 
-
-### 下载安装 miniconda  
+### ⭕ 下载安装 miniconda  
 
 1、测试是否安装成功  
 `conda --version`  
 
 2、设置镜像源  
-``` shell
+```
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 conda config --set show_channel_urls yes
@@ -35,37 +52,39 @@ conda config --set show_channel_urls yes
 `conda create -n djangoproj`  
 `conda info --envs`  
 
+> [!NOTE|style:flat]
 > 激活某个虚拟环境 `conda activate 。。。`  
-退出当前虚拟环境 `conda deactivate`  
-删除某个虚拟环境 `conda env remove -n 。。。`  
+> 退出当前虚拟环境 `conda deactivate`  
+> 删除某个虚拟环境 `conda env remove -n 。。。`  
 
-
-### 配置所需环境
+### ⭕ 配置所需环境
 
 `conda activate djangoproj`  
 `conda install django==3.2, pillow, pymysql, markdown`  
 还需要安装 MySQL 5.7.x  
 进入 MySQL 创建一下需要的数据库，下面创建一个 my_blog 数据库
-``` SQL
+``` sql
 create database my_blog;
 show databases;
 ```
 
+### ⭕ 具体实现步骤
 
-### 具体实现步骤
-
-- 创建工程  
+#### 🔘 创建工程  
 
 在合适的路径下，例如：D:\pyproj\DjangoLearn 下执行  
 `django-admin startproject website`  
+创建一个名叫 website 的工程  
 
-- 创建 app  
+#### 🔘 创建 app  
 
 来到 D:\pyproj\DjangoLearn\website 下执行  
 `python manage.py startapp blog`  
+创建 blog app  
 
 打开 D:\pyproj\DjangoLearn\website\website\settings.py  
-修改一些参数，使得页面为中文  
+修改如下参数，使得页面为中文  
+
 ``` python
 LANGUAGE_CODE = 'zh-hans'
 
@@ -78,7 +97,8 @@ USE_L10N = True
 USE_TZ = False
 ```
 
-配置后端数据库为 MySQL：
+再配置后端数据库为 MySQL
+
 ``` python
 import pymysql
 pymysql.install_as_MySQLdb()
@@ -97,11 +117,13 @@ DATABASES = {
 }
 ```
 
-> runserver 前要先启动 MySQL 服务
+> [!NOTE|style:flat]
+> 注意在 runserver 前要先启动 MySQL 服务  
 
-- 模型设计
+#### 🔘 模型设计
 
-打开 D:\pyproj\DjangoLearn\website\blog\models.py，添加：
+打开 D:\pyproj\DjangoLearn\website\blog\models.py，添加
+
 ``` python
 from django.db import models
 from django.contrib.auth.models import User
@@ -149,7 +171,8 @@ class Entry(models.Model):
         verbose_name_plural = verbose_name
 ```
 
-打开 D:\pyproj\DjangoLearn\website\blog\admin.py，添加：
+打开 D:\pyproj\DjangoLearn\website\blog\admin.py，添加
+
 ``` python
 from django.contrib import admin
 from . import models
@@ -167,11 +190,12 @@ admin.site.register(models.Entry,EntryAdmin)
 在 terminal 执行以下命令，创建 admin 的超级用户  
 `python manage.py createsuperuser`  
 
-自行在 admin 后台添加一些 blog 的类别、标签、正文等  
+自行在 admin 后台添加一些 blog 的类别、标签、正文等，后面可以做测试用  
 
-- url 和视图设计
+#### 🔘 url 和视图设计
 
-打开 D:\pyproj\DjangoLearn\website\website\urls.py，添加：
+打开 D:\pyproj\DjangoLearn\website\website\urls.py，添加
+
 ``` python
 from django.contrib import admin
 from django.urls import path, include
@@ -183,7 +207,8 @@ urlpatterns = [
 ]
 ```
 
-打开 D:\pyproj\DjangoLearn\website\blog\urls.py，添加：
+打开 D:\pyproj\DjangoLearn\website\blog\urls.py，添加
+
 ``` python
 from django.urls import path
 from . import views
@@ -195,7 +220,8 @@ urlpatterns = [
 ]
 ```
 
-打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加：
+打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加
+
 ``` python
 from django.shortcuts import render
 
@@ -209,7 +235,8 @@ def detail(request,blog_id):
 ```
 
 创建文件夹 D:\pyproj\DjangoLearn\website\blog\templates\blog  
-在该文件夹下创建 index.html
+在该文件夹下创建 index.html  
+
 ``` html
 <!DOCTYPE html>
 <html lang="en">
@@ -222,7 +249,9 @@ def detail(request,blog_id):
     </body>
 </html>
 ```
+
 在该文件夹中创建 detail.html
+
 ``` html
 <!DOCTYPE html>
 <html lang="en">
@@ -231,25 +260,25 @@ def detail(request,blog_id):
         <title>博客详情页</title>
     </head>
     <body>
-        <h1>博客{{ blog_id }}的详情</h1>
+        <h1>博客｛｛ blog_id ｝｝的详情</h1>
     </body>
 </html>
 ```
 
-在 terminal 执行
-`python manage.py runserver`
+在 terminal 执行 `python manage.py runserver`  
 
-> 至于为什么需要创建这么深的子文件夹，请看后续的参考资料
+> [!NOTE|style:flat]
+> 为什么需要创建这么深的子文件夹，请看后续的参考资料  
 
-
-### 前端页面设计
+### ⭕ 前端页面设计
 
 创建文件夹 D:\pyproj\DjangoLearn\website\static  
-下载 bootstrap、jquery 到里面
+下载 bootstrap、jquery 到其中  
 
 创建文件夹 D:\pyproj\DjangoLearn\website\blog\static  
 
-打开 D:\pyproj\DjangoLearn\website\website\settings.py，配置静态文件位置
+打开 D:\pyproj\DjangoLearn\website\website\settings.py，配置静态文件位置  
+
 ``` python
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
@@ -259,23 +288,22 @@ STATICFILES_DIRS = [
 ```
 
 编写 blog 的 base.html 页面
-<details>
-<summary>点击展开详细内容</summary>
-<p>base.html</p>
-<blockcode>
+
+%accordion% 点击查看 base.html 的详细内容 %accordion%
+
+注意在文件顶部添加 `load static`，放在大括号 `｛` 和百分号 `%` 之间  
 
 ``` html
-{% load static %}
 
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>｛% block title %｝｛% endblock %｝</title>
 
-    <link href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'blog/css/blog_nav.css' %}" rel="stylesheet">
-    {% block css %}{% endblock %}
+    <link href="｛% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %｝" rel="stylesheet">
+    <link href="｛% static 'blog/css/blog_nav.css' %｝" rel="stylesheet">
+    ｛% block css %｝｛% endblock %｝
 
 </head>
 <body>
@@ -316,7 +344,7 @@ STATICFILES_DIRS = [
 </div><!-- /.container-fluid -->
 </nav>
 
-{% block content %}{% endblock %}
+｛% block content %｝｛% endblock %｝
 
 <footer>
     <div class="footer" role="navigation">
@@ -337,45 +365,39 @@ STATICFILES_DIRS = [
 </footer>
 
 
-<script src="{% static 'jquery-3.2.1.min.js' %}"></script>
-<script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+<script src="｛% static 'jquery-3.2.1.min.js' %｝"></script>
+<script src="｛% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %｝"></script>
 
-{% block script %}{% endblock %}
+｛% block script %｝｛% endblock %｝
 
 </body>
 </html>
 ```
 
-</blockcode>
-</details>
+%/accordion%
 
 编写 blog 的 index.html 页面，通过复用 base.html 实现快速的扩展
-<details>
-<summary>点击展开详细内容</summary>
-<p>index.html</p>
-<blockcode>
+
+%accordion% 点击查看 index.html 的详细内容 %accordion%
 
 ``` html
-{% extends 'blog/base.html' %}
+｛% extends 'blog/base.html' %｝
 
-{% block title %}博客首页{% endblock %}
+｛% block title %｝博客首页｛% endblock %｝
 
-{% block content %}
+｛% block content %｝
 
     博客首页
     <div style="height: 440px; " ></div>
 
-{% endblock %}
+｛% endblock %｝
 ```
 
-</blockcode>
-</details>
+%/accordion%
 
-创建 D:\pyproj\DjangoLearn\website\blog\static\blog\css\blog_nav.css
-<details>
-<summary>点击展开详细内容</summary>
-<p>blog_nav.css</p>
-<blockcode>
+创建 D:\pyproj\DjangoLearn\website\blog\static\blog\css\blog_nav.css  
+
+%accordion% 点击查看 blog_nav.css 的详细内容 %accordion%
 
 ``` css
 body {
@@ -508,19 +530,19 @@ nav .navbar-form{
 }
 ```
 
-</blockcode>
-</details>
+%/accordion%
 
-
-### 博客首页设计
+### ⭕ 博客首页设计
 
 打开 D:\pyproj\DjangoLearn\website\website\settings.py，配置媒体文件位置
+
 ``` python
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
 
-打开 D:\pyproj\DjangoLearn\website\website\urls.py，添加：
+打开 D:\pyproj\DjangoLearn\website\website\urls.py，添加
+
 ``` python
 。。。。。。
 from django.conf import settings
@@ -532,7 +554,8 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
-打开 D:\pyproj\DjangoLearn\website\blog\models.py，添加：
+打开 D:\pyproj\DjangoLearn\website\blog\models.py，添加
+
 ``` python
 class Entry(models.Model):
     。。。。。。
@@ -546,7 +569,8 @@ class Entry(models.Model):
         self.save(update_fields=['visiting'])   #只保存某个字段
 ```
 
-打开 D:\pyproj\DjangoLearn\website\blog\views.py，完善：
+打开 D:\pyproj\DjangoLearn\website\blog\views.py，完善
+
 ``` python
 from django.shortcuts import render
 from . import models
@@ -563,37 +587,35 @@ def detail(request,blog_id):
 ```
 
 编写 blog 的 index.html 页面，通过复用 base.html 实现快速的扩展
-<details>
-<summary>点击展开详细内容</summary>
-<p>index.html</p>
-<blockcode>
+
+%accordion% 点击查看 index.html 的详细内容 %accordion%
 
 ``` html
-{% extends 'blog/base.html' %}
+｛% extends 'blog/base.html' %｝
 
-{% block title %}博客首页{% endblock %}
+｛% block title %｝博客首页｛% endblock %｝
 
-{% block content %}
+｛% block content %｝
 
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                {% for entry in entries %}
-                    <h2><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h2> <br>
-                    {% if entry.img %}
-                        <img src="{{ entry.img.url }}" width="60%" height="270px"/>
-                    {% endif %}
-                    {% if entry.abstract %}
-                        <p>{{ entry.abstract }}</p>
-                    {% else %}
-                        <p>{{ entry.body|truncatechars:180 }}</p>
-                    {% endif %}
+                ｛% for entry in entries %｝
+                    <h2><a href="｛｛ entry.get_absolute_url ｝｝">｛｛ entry.title ｝｝</a></h2> <br>
+                    ｛% if entry.img %｝
+                        <img src="｛｛ entry.img.url ｝｝" width="60%" height="270px"/>
+                    ｛% endif %｝
+                    ｛% if entry.abstract %｝
+                        <p>｛｛ entry.abstract ｝｝</p>
+                    ｛% else %｝
+                        <p>｛｛ entry.body|truncatechars:180 ｝｝</p>
+                    ｛% endif %｝
                     <p>
-                        <span>作者：{{ entry.author }}</span>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;发布时间：{{ entry.created_time }}</span>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;阅读数：{{ entry.visiting }}</span>
+                        <span>作者：｛｛ entry.author ｝｝</span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;发布时间：｛｛ entry.created_time ｝｝</span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;阅读数：｛｛ entry.visiting ｝｝</span>
                     </p>
-                {% endfor %}
+                ｛% endfor %｝
 
             </div>
 
@@ -602,66 +624,62 @@ def detail(request,blog_id):
     </div>
 
 
-{% endblock %}
+｛% endblock %｝
 ```
 
-</blockcode>
-</details>
+%/accordion%
 
-
-### 博客详情页
+### ⭕ 博客详情页
 
 编写 blog 的 detail.html 页面，也是复用 base.html
-<details>
-<summary>点击展开详细内容</summary>
-<p>detail.html</p>
-<blockcode>
+
+%accordion% 点击查看 detail.html 的详细内容 %accordion%
 
 ``` html
-{% extends 'blog/base.html' %}
+｛% extends 'blog/base.html' %｝
 
-{% block title %}博客详情页{% endblock %}
+｛% block title %｝博客详情页｛% endblock %｝
 
-{% block content %}
+｛% block content %｝
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                <h1>{{ entry.title }}</h1>
+                <h1>｛｛ entry.title ｝｝</h1>
                 <p>
-                    <strong>{{ entry.author }}</strong>
-                    &nbsp;&nbsp;&nbsp;&nbsp;{{ entry.created_time|date:'Y年m月d日' }}
+                    <strong>｛｛ entry.author ｝｝</strong>
+                    &nbsp;&nbsp;&nbsp;&nbsp;｛｛ entry.created_time|date:'Y年m月d日' ｝｝
                     &nbsp;&nbsp;&nbsp;&nbsp;分类：
-                    {% for category in entry.category.all %}
-                        &nbsp;&nbsp;<a href="#">{{ category.name }}</a>
-                    {% endfor %}
+                    ｛% for category in entry.category.all %｝
+                        &nbsp;&nbsp;<a href="#">｛｛ category.name ｝｝</a>
+                    ｛% endfor %｝
 
                     &nbsp;&nbsp;&nbsp;&nbsp;标签：
-                    {% for tag in entry.tags.all %}
-                        &nbsp;&nbsp;<a href="#">{{ tag.name }}</a>
-                    {% endfor %}
+                    ｛% for tag in entry.tags.all %｝
+                        &nbsp;&nbsp;<a href="#">｛｛ tag.name ｝｝</a>
+                    ｛% endfor %｝
 
                     &nbsp;&nbsp;&nbsp;&nbsp;浏览量：
-                            &nbsp;&nbsp;{{ entry.visiting }}
+                            &nbsp;&nbsp;｛｛ entry.visiting ｝｝
 
-                    {% if entry.img %}
-                        <img src="{{ entry.img.url }}" width="60%" height="270px"/>
-                    {% endif %}
+                    ｛% if entry.img %｝
+                        <img src="｛｛ entry.img.url ｝｝" width="60%" height="270px"/>
+                    ｛% endif %｝
                     <hr />
                     <p>
-                        {{ entry.body }}
+                        ｛｛ entry.body ｝｝
                     </p>
                 </p>
             </div>
         </div>
     </div>
 
-{% endblock %}
+｛% endblock %｝
 ```
 
-</blockcode>
-</details>
+%/accordion%
 
-打开 D:\pyproj\DjangoLearn\website\blog\views.py，修改detail函数：
+打开 D:\pyproj\DjangoLearn\website\blog\views.py，修改detail函数  
+
 ``` python
 。。。。。。
 def detail(request,blog_id):
@@ -676,22 +694,20 @@ def detail(request,blog_id):
     。。。。。。
 ```
 
-在 detail.html 中的 .col-md-9 > p > p 位置，p标签里面添加
+在 detail.html 中的 `.col-md-9 > p > p` 位置，p 标签里面添加
+
 ``` html
 <p>
-    {{ entry.toc | safe }}
-    {{ entry.body | safe }}
+    ｛｛ entry.toc | safe ｝｝
+    ｛｛ entry.body | safe ｝｝
 </p>
 ```
 
+### ⭕ 实现分页功能
 
-### 实现分页功能
+打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加函数
 
-打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加函数：
-<details>
-<summary>点击展开详细内容</summary>
-<p>make_paginator、pagination_data函数的实现</p>
-<blockcode>
+%accordion% 点击查看 make_paginator、pagination_data 函数的实现 %accordion%
 
 ``` python
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -825,105 +841,101 @@ def index(request):
     return render(request, 'blog/index.html', locals())
 ```
 
-</blockcode>
-</details>
+%/accordion%
 
 在博客首页 index 页面也对应的加上按钮
-<details>
-<summary>点击展开详细内容</summary>
-<p>index.html</p>
-<blockcode>
+
+%accordion% 点击查看 index.html 的详细内容 %accordion%
 
 ``` html
 <!--/.pagination-->
 <div id="paginator" class="pull-right">
     <ul class="pagination">
-        {% if entry_list.has_previous %}
+        ｛% if entry_list.has_previous %｝
         <li>
-            {% if keyword %}
-            <a href="?keyword={{ keyword }}&page={{ entry_list.previous_page_number }}"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a>
-            {% else %}
-            <a href="?page={{ entry_list.previous_page_number }}"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a>
-            {% endif %}
+            ｛% if keyword %｝
+            <a href="?keyword=｛｛ keyword ｝｝&page=｛｛ entry_list.previous_page_number ｝｝"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a>
+            ｛% else %｝
+            <a href="?page=｛｛ entry_list.previous_page_number ｝｝"><i class="glyphicon glyphicon-chevron-left"></i>前一页</a>
+            ｛% endif %｝
         </li>
-        {% endif %}
+        ｛% endif %｝
 
-        {% if first %}
-            {% if keyword %}
-            <li><a href="?keyword={{ keyword }}&page=1">1</a></li>
-            {% else %}
+        ｛% if first %｝
+            ｛% if keyword %｝
+            <li><a href="?keyword=｛｛ keyword ｝｝&page=1">1</a></li>
+            ｛% else %｝
             <li><a href="?page=1">1</a></li>
-            {% endif %}
-        {% endif %}
+            ｛% endif %｝
+        ｛% endif %｝
 
-        {% if left %}
-            {% if left_has_more %}
+        ｛% if left %｝
+            ｛% if left_has_more %｝
             <span>...</span>
-            {% endif %}
+            ｛% endif %｝
 
-            {% for i in left %}
-                {% if keyword %}
-                <li><a href="?keyword={{ keyword }}&page={{ i }}">{{ i }}</a></li>
-                {% else %}
-                <li><a href="?page={{ i }}">{{ i }}</a></li>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
+            ｛% for i in left %｝
+                ｛% if keyword %｝
+                <li><a href="?keyword=｛｛ keyword ｝｝&page=｛｛ i ｝｝">｛｛ i ｝｝</a></li>
+                ｛% else %｝
+                <li><a href="?page=｛｛ i ｝｝">｛｛ i ｝｝</a></li>
+                ｛% endif %｝
+            ｛% endfor %｝
+        ｛% endif %｝
 
         <li class="active">
-            {% if keyword %}
-            <a href="?keyword={{ keyword }}&page={{ entry_list.number }}">{{ entry_list.number }}</a>
-            {% else %}
-            <a href="?page={{ entry_list.number }}">{{ entry_list.number }}</a>
-            {% endif %}
+            ｛% if keyword %｝
+            <a href="?keyword=｛｛ keyword ｝｝&page=｛｛ entry_list.number ｝｝">｛｛ entry_list.number ｝｝</a>
+            ｛% else %｝
+            <a href="?page=｛｛ entry_list.number ｝｝">｛｛ entry_list.number ｝｝</a>
+            ｛% endif %｝
         </li>
 
-        {% if right %}
-            {% for i in right %}
+        ｛% if right %｝
+            ｛% for i in right %｝
             <li>
-                {% if keyword %}
-                <a href="?keyword={{ keyword }}&page={{ i }}">{{ i }}</a>
-                {% else %}
-                <a href="?page={{ i }}">{{ i }}</a>
-                {% endif %}
+                ｛% if keyword %｝
+                <a href="?keyword=｛｛ keyword ｝｝&page=｛｛ i ｝｝">｛｛ i ｝｝</a>
+                ｛% else %｝
+                <a href="?page=｛｛ i ｝｝">｛｛ i ｝｝</a>
+                ｛% endif %｝
             </li>
-            {% endfor %}
+            ｛% endfor %｝
 
-            {% if right_has_more %}
+            ｛% if right_has_more %｝
             <span>...</span>
-            {% endif %}
-        {% endif %}
+            ｛% endif %｝
+        ｛% endif %｝
 
-        {% if last %}
+        ｛% if last %｝
         <li>
-            {% if keyword %}
-            <a href="?keyword={{ keyword }}&page={{ entry_list.num_pages }}">{{ entry_list.num_pages }}</a>
-            {% else %}
-            <a href="?page={{ entry_list.num_pages }}">{{ entry_list.num_pages }}</a>
-            {% endif %}
+            ｛% if keyword %｝
+            <a href="?keyword=｛｛ keyword ｝｝&page=｛｛ entry_list.num_pages ｝｝">｛｛ entry_list.num_pages ｝｝</a>
+            ｛% else %｝
+            <a href="?page=｛｛ entry_list.num_pages ｝｝">｛｛ entry_list.num_pages ｝｝</a>
+            ｛% endif %｝
         </li>
-        {% endif %}
+        ｛% endif %｝
 
-        {% if entry_list.has_next %}
+        ｛% if entry_list.has_next %｝
         <li>
-            {% if keyword %}
-            <a href="?keyword={{ keyword }}&page={{ entry_list.next_page_number }}">下一页<i class="glyphicon glyphicon-chevron-right"></i></a>
-            {% else %}
-            <a href="?page={{ entry_list.next_page_number }}">下一页<i class="glyphicon glyphicon-chevron-right"></i></a>
-            {% endif %}
+            ｛% if keyword %｝
+            <a href="?keyword=｛｛ keyword ｝｝&page=｛｛ entry_list.next_page_number ｝｝">下一页<i class="glyphicon glyphicon-chevron-right"></i></a>
+            ｛% else %｝
+            <a href="?page=｛｛ entry_list.next_page_number ｝｝">下一页<i class="glyphicon glyphicon-chevron-right"></i></a>
+            ｛% endif %｝
         </li>
-        {% endif %}
+        ｛% endif %｝
     </ul>
 </div>
 ```
 
-</blockcode>
-</details>
+%/accordion%
 
+### ⭕ 添加类别功能
 
-### 添加类别功能
+打开 D:\pyproj\DjangoLearn\website\blog\urls.py，添加
 
-打开 D:\pyproj\DjangoLearn\website\blog\urls.py，添加：
 ``` python
 。。。。。。
 urlpatterns = [
@@ -932,7 +944,8 @@ urlpatterns = [
 ]
 ```
 
-打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加 category 函数：
+打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加 category 函数
+
 ``` python
 def category(request, category_id):
     c = models.Category.objects.get(id=category_id)
@@ -943,20 +956,21 @@ def category(request, category_id):
     return render(request, 'blog/index.html', locals())
 ```
 
-在 detail.html 中的横向容器中添加：
+在 detail.html 中的横向容器中添加
+
 ``` html
 &nbsp;&nbsp;&nbsp;&nbsp;分类：
-{% for category in entry.category.all %}
-&nbsp;&nbsp;<a href="{% url 'blog:blog_category' category.id %}">{{ category.name }}</a>
+｛% for category in entry.category.all %｝
+&nbsp;&nbsp;<a href="｛% url 'blog:blog_category' category.id %｝">｛｛ category.name ｝｝</a>
 <!-- blog:blog_category是命名空间 -->
-{% endfor %}
+｛% endfor %｝
 ```
 
+### ⭕ 实现标签功能
 
-### 实现标签功能
+类似的，先在 urls 进行修改  
+打开 D:\pyproj\DjangoLearn\website\blog\urls.py，在urlpatterns 中添加  
 
-类似的，先在 urls 进行修改：
-打开 D:\pyproj\DjangoLearn\website\blog\urls.py，在urlpatterns 中添加：
 ``` python
 。。。。。。
 urlpatterns = [
@@ -965,7 +979,8 @@ urlpatterns = [
 ]
 ```
 
-打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加 tag 函数：
+打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加 tag 函数
+
 ``` python
 def tag(request,tag_id):
     t = models.Tag.objects.get(id=tag_id)
@@ -979,18 +994,19 @@ def tag(request,tag_id):
     return render(request, 'blog/index.html', locals())
 ```
 
-在 detail.html 中的横向容器中添加：
+在 detail.html 中的横向容器中添加
+
 ``` html
 &nbsp;&nbsp;&nbsp;&nbsp;标签：
-{% for tag in entry.tags.all %}
-    &nbsp;&nbsp;<a href="{% url 'blog:blog_tag' tag.id %}">{{ tag.name }}</a>
-{% endfor %}
+｛% for tag in entry.tags.all %｝
+    &nbsp;&nbsp;<a href="｛% url 'blog:blog_tag' tag.id %｝">｛｛ tag.name ｝｝</a>
+｛% endfor %｝
 ```
 
+### ⭕ 实现搜索功能
 
-### 实现搜索功能
+打开 D:\pyproj\DjangoLearn\website\blog\urls.py，在urlpatterns 中添加
 
-打开 D:\pyproj\DjangoLearn\website\blog\urls.py，在urlpatterns 中添加：
 ``` python
 。。。。。。
 urlpatterns = [
@@ -999,7 +1015,8 @@ urlpatterns = [
 ]
 ```
 
-打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加 search 函数：
+打开 D:\pyproj\DjangoLearn\website\blog\views.py，添加 search 函数
+
 ``` python
 def search(request):
     keyword = request.GET.get('keyword',None)
@@ -1015,9 +1032,10 @@ def search(request):
     return render(request, 'blog/index.html', locals())
 ```
 
-在 base.html 中的横向容器中添加：
+在 base.html 中的横向容器中添加
+
 ``` html
-<form class="navbar-form navbar-left" action="{% url 'blog:blog_search' %}">
+<form class="navbar-form navbar-left" action="｛% url 'blog:blog_search' %｝">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search" name="keyword">
     </div>
@@ -1025,13 +1043,13 @@ def search(request):
 </form>
 ```
 
+### ⭕ 博客的侧边栏
 
-### 博客的侧边栏
-
-侧边栏可以放置：最新、推荐博客、标签云等等
+侧边栏可以放置：最新、推荐博客、标签云等等  
 
 创建文件夹 D:\pyproj\DjangoLearn\website\blog\templatetags  
 在该文件夹下创建 blog_tags.py  
+
 ``` python
 from django import template
 from ..models import Entry,Category,Tag
@@ -1049,46 +1067,50 @@ def get_popular_entries(num=5):
 ```
 
 在文件夹 D:\pyproj\DjangoLearn\website\blog\templates\blog 下创建 right_side_bar.html  
+
+注意在文件顶部添加 `load blog_tags`，放在大括号 `｛` 和百分号 `%` 之间  
+
 ``` html
-{% load blog_tags %}
 
 <div class="row">
     <div class="widget">
         <h3>最新博客</h3>
-        {% get_recent_entries as recent_entry_list %}
+        ｛% get_recent_entries as recent_entry_list %｝
 
-        {% for entry in recent_entry_list %}
+        ｛% for entry in recent_entry_list %｝
             <div>
-                <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
-                <div>{{ entry.author }}   发表于：{{ entry.created_time|date:"Y年m月d日" }}</div>
+                <a href="｛｛ entry.get_absolute_url ｝｝">｛｛ entry.title ｝｝</a>
+                <div>｛｛ entry.author ｝｝   发表于：｛｛ entry.created_time|date:"Y年m月d日" ｝｝</div>
             </div>
-        {% endfor %}
+        ｛% endfor %｝
     </div>
 </div>
 
 <div class="row">
     <div class="widget">
         <h3>推荐博客</h3>
-        {% get_popular_entries as popular_entry_list %}
+        ｛% get_popular_entries as popular_entry_list %｝
 
-        {% for entry in popular_entry_list %}
+        ｛% for entry in popular_entry_list %｝
             <div>
-                <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>
-                <span class="badge" style="color: white;background-color: darkgreen">{{ entry.visiting }}</span>
+                <a href="｛｛ entry.get_absolute_url ｝｝">｛｛ entry.title ｝｝</a>
+                <span class="badge" style="color: white;background-color: darkgreen">｛｛ entry.visiting ｝｝</span>
             </div>
-        {% endfor %}
+        ｛% endfor %｝
     </div>
 </div>
 ```
 
-并在 index.html 和 detail.html 的 div.col-md-9 后边加上：
+并在 index.html 和 detail.html 的 `div.col-md-9` 后边加上
+
 ``` html
 <div class="col-md-3">
-    {% include 'blog/right_site_bar.html' %}
+    ｛% include 'blog/right_site_bar.html' %｝
 </div>
 ```
 
 在 D:\pyproj\DjangoLearn\website\blog\templatetags\blog_tags.py 中添加  
+
 ``` python
 @register.simple_tag
 def get_tags():
@@ -1096,23 +1118,25 @@ def get_tags():
 ```
 
 在 D:\pyproj\DjangoLearn\website\blog\templates\blog\right_side_bar.html 添加  
+
 ``` html
 <div class="row">
     <div class="widget" >
         <h3>标签云:</h3>
-        {% get_tags as tag_list %}
-        {% for tag in tag_list %}
-            <a href="{% url 'blog:blog_tag' tag.id %}" style="font-size: 20px;">
-                <span style="padding: 5px;" class="label {% cycle 'label-default' 'label-primary' 'label-success' 'label-info' 'label-warning' 'label-danger' %}">{{ tag.name }}</span>
+        ｛% get_tags as tag_list %｝
+        ｛% for tag in tag_list %｝
+            <a href="｛% url 'blog:blog_tag' tag.id %｝" style="font-size: 20px;">
+                <span style="padding: 5px;" class="label ｛% cycle 'label-default' 'label-primary' 'label-success' 'label-info' 'label-warning' 'label-danger' %｝">｛｛ tag.name ｝｝</span>
             </a>&nbsp;
-        {% endfor %}
+        ｛% endfor %｝
     </div>
 </div>
 ```
 
-### 自定义 403、404、500 页面
+### ⭕ 自定义 403、404、500 页面
 
-首先在 D:\pyproj\DjangoLearn\website\blog\views.py 中定义：
+首先在 D:\pyproj\DjangoLearn\website\blog\views.py 中定义
+
 ``` python
 def permission_denied(request):
     '''403'''
@@ -1129,7 +1153,8 @@ def page_error(request):
     return render(request, 'blog/500.html', locals())
 ```
 
-在 D:\pyproj\DjangoLearn\website\website\urls.py 中添加：
+在 D:\pyproj\DjangoLearn\website\website\urls.py 中添加
+
 ``` python
 from blog import views as blog_views
 
@@ -1138,7 +1163,8 @@ handler404 = blog_views.page_not_found
 handler500 = blog_views.page_error
 ```
 
-修改 D:\pyproj\DjangoLearn\website\blog\views.py 中的 detail 函数：
+修改 D:\pyproj\DjangoLearn\website\blog\views.py 中的 detail 函数
+
 ``` python
 from django.shortcuts import get_object_or_404
 
@@ -1148,12 +1174,13 @@ def detail(request, blog_id):
     。。。。。。
 ```
 
-> 注意：需要在 settings.py 中的 debug=False 的生产环境下才会生效
+> [!NOTE|style:flat]
+> 403、404、500 页面需要在 settings.py 中的 `debug=False` 的生产环境下才会生效  
 
-
-### sitemap
+### ⭕ sitemap
 
 先在 D:\pyproj\DjangoLearn\website\website\settings.py 注册 app
+
 ``` python
 INSTALLED_APPS = [
     ......
@@ -1163,6 +1190,7 @@ INSTALLED_APPS = [
 ```
 
 修改 D:\pyproj\DjangoLearn\website\website\urls.py
+
 ``` python
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
@@ -1180,15 +1208,18 @@ urlpatterns = [
     ......
 ]
 ```
+
 访问地址：http://127.0.0.1:8000/sitemap.xml
 
-> 为什么需要 sitemap？https://zhuanlan.zhihu.com/p/129264411  
-提交给百度站长平台，方便搜索引擎快速完成收录，使得我们的文章可以被搜索到  
+> [!NOTE|style:flat]
+> 为什么需要 sitemap？  
+> https://zhuanlan.zhihu.com/p/129264411  
+> 提交给百度站长平台，方便搜索引擎快速完成收录，使得我们的文章可以被搜索到  
 
+### ⭕ 返回顶部功能
 
-### 返回顶部功能
+在 base.html 中添加
 
-在 base.html 中添加：
 ``` html
 <div id="back-to-top">
     <i class="glyphicon glyphicon-arrow-up"></i>
@@ -1200,10 +1231,11 @@ urlpatterns = [
     });
 </script>
 
-<link href="{% static 'blog/css/back-to-top.css' %}" rel="stylesheet">
+<link href="｛% static 'blog/css/back-to-top.css' %｝" rel="stylesheet">
 ```
 
 在 D:\pyproj\DjangoLearn\website\blog\static\blog\css 下创建 back-to-top.css
+
 ``` css
 #back-to-top {
     box-shadow: 5px 5px 5px #888888;
@@ -1225,7 +1257,60 @@ urlpatterns = [
 ```
 
 
-### 参考资料
 
-https://zhuanlan.zhihu.com/p/98788776  
-https://www.cnblogs.com/RioTian/p/13828548.html  
+
+<style>
+    .note {
+        background-color: #f9f9f9; 
+        border: 1px solid #ddd; 
+        padding: 10px; 
+        border-radius: 10px; 
+        display: inline-block; 
+        font-weight: bold;
+        margin: 10px 0px;
+    }
+    .note:hover {
+        animation: gradient-in 0.5s forwards;
+    }
+    .note:not(:hover) {
+        animation: gradient-out 0.5s forwards;
+    }
+    @keyframes gradient-in {
+        0% {
+            background-color: #f9f9f9;
+        }
+        20% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #e1e1e1;
+        }
+    }
+    @keyframes gradient-out {
+        0% {
+            background-color: #e1e1e1;
+        }
+        80% {
+            background-color: #f5f5f5;
+        }
+        100% {
+            background-color: #f9f9f9;
+        }
+    }
+    .title1 { 
+        font-size: 24px; 
+        /* color: #333;  */
+    }
+    .title2 { 
+        font-size: 20px; 
+        /* color: #555;  */
+    }
+    .title3 { 
+        font-size: 16px; 
+        /* color: #777;  */
+    }
+    /* .note:hover [class^="title"]{
+        font-size: 30px;
+        opacity: 0.6;
+    } */
+</style>
